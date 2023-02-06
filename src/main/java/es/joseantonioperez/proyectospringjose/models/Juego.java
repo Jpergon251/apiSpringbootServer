@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
@@ -22,6 +20,10 @@ public class Juego {
     @JsonBackReference
     @OneToMany(mappedBy = "juego", cascade = CascadeType.ALL)
     private Set<Jugador> jugadores = new HashSet<>();
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "partidas", cascade = CascadeType.ALL)
+    private Set<Partidas> partidas = new HashSet<>();
 
     public Juego(){}
 

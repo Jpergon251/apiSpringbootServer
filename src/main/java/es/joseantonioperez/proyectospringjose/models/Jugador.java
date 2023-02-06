@@ -20,6 +20,10 @@ public class Jugador {
     @JoinColumn()
     private Juego juego;
 
+    @ManyToOne
+    @JoinColumn()
+    private JuegoPartida juegoPartida;
+
     public Jugador(){}
 
     public Jugador(String nombre, Integer edad, Double horasJugadas, Juego juego) {
