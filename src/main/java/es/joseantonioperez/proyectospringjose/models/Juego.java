@@ -19,7 +19,7 @@ public class Juego {
 
     @JsonBackReference
     @OneToMany(mappedBy = "juego", cascade = CascadeType.ALL)
-    private Set<Jugador> jugadores = new HashSet<>();
+    private Set<Jugador> jugador = new HashSet<>();
 
     @JsonBackReference
     @OneToMany(mappedBy = "partidas", cascade = CascadeType.ALL)
@@ -27,8 +27,10 @@ public class Juego {
 
     public Juego(){}
 
-    public Juego(String nombre, Set<Jugador> jugadores) {
+
+    public Juego(String nombre, Set<Jugador> jugador, Set<Partidas> partidas) {
         this.nombre = nombre;
-        this.jugadores = jugadores;
+        this.jugador = jugador;
+        this.partidas = partidas;
     }
 }
