@@ -16,13 +16,13 @@ public class JuegoPartida {
 
     @ManyToOne
     @JoinColumn()
-    private Partidas partidas;
+    private Partida partida;
 
 
     public JuegoPartida(){}
 
-    public JuegoPartida(Jugador jugador, Partidas partidas) {
+    public JuegoPartida(Jugador jugador, Partida partida) {
         this.jugador = jugador;
-        this.partidas = partidas;
+        this.partida = partida;
     }
 }

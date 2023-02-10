@@ -1,30 +1,29 @@
 package es.joseantonioperez.proyectospringjose.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.Date;
 
 @Entity @Getter @Setter
-public class Partidas {
+public class Partida {
     @Id
     @GeneratedValue
     private Long id;
     private Double duracion;
-    @ManyToOne
-    @JoinColumn()
-    private Juego juego;
+    private Date fecha_partida;
 
     @ManyToOne
     @JoinColumn()
     private JuegoPartida juegoPartida;
 
-    public Partidas(){};
-    public Partidas(Double duracion, Juego juego, JuegoPartida juegoPartida) {
+    public Partida(){};
+
+    public Partida(Double duracion, Date fecha_partida, JuegoPartida juegoPartida) {
         this.duracion = duracion;
-        this.juego = juego;
+        this.fecha_partida = fecha_partida;
         this.juegoPartida = juegoPartida;
     }
+
 }

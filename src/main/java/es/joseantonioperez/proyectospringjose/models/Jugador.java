@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Getter
 @Setter
@@ -18,18 +20,13 @@ public class Jugador {
 
     @ManyToOne
     @JoinColumn()
-    private Juego juego;
-
-    @ManyToOne
-    @JoinColumn()
     private JuegoPartida juegoPartida;
 
     public Jugador(){}
 
-    public Jugador(String nombre, Integer edad, Double horasJugadas, Juego juego) {
+    public Jugador(String nombre, Integer edad, Double horasJugadas) {
         this.nombre = nombre;
         this.edad = edad;
         this.horasJugadas = horasJugadas;
-        this.juego = juego;
     }
 }

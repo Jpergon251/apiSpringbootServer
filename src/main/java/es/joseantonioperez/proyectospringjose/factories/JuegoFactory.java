@@ -15,8 +15,7 @@ public class JuegoFactory {
     public List<Juego> get(int number){
 
         return IntStream.range(0, number)
-                .mapToObj(x -> new Juego(   esFaker.name().firstName(),
-                                            esFaker.number()
+                .mapToObj(x -> new Juego(
                         ))
                 .collect(Collectors.toList());
     }

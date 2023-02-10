@@ -1,6 +1,5 @@
 package es.joseantonioperez.proyectospringjose.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,20 +16,14 @@ public class Juego {
 
     private String nombre;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "juego", cascade = CascadeType.ALL)
-    private Set<Jugador> jugador = new HashSet<>();
-
-    @JsonBackReference
-    @OneToMany(mappedBy = "partidas", cascade = CascadeType.ALL)
-    private Set<Partidas> partidas = new HashSet<>();
+    @ManyToOne
+    @JoinColumn()
+    private JuegoPartida juegoPartida;
 
     public Juego(){}
 
 
-    public Juego(String nombre, Set<Jugador> jugador, Set<Partidas> partidas) {
+    public Juego(String nombre) {
         this.nombre = nombre;
-        this.jugador = jugador;
-        this.partidas = partidas;
     }
 }

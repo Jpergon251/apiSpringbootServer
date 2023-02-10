@@ -13,10 +13,10 @@ import java.util.Optional;
 public class JuegoController {
     @Autowired
     JuegoRepository juegoRepository;
-    @GetMapping("/juegos/")
+    @GetMapping("/juego/")
     public ResponseEntity<Object> index() {return new ResponseEntity<>(juegoRepository.findAll(),HttpStatus.OK);}
 
-    @GetMapping("/juegos/{id}/")
+    @GetMapping("/juego/{id}/")
     public ResponseEntity<Object> show(@PathVariable("id") Long id) {
         return new ResponseEntity<>(juegoRepository.findById(id), HttpStatus.OK);
     }
@@ -27,14 +27,14 @@ public class JuegoController {
         return new ResponseEntity<>(juego, HttpStatus.OK);
     }
 
-    @DeleteMapping("/juegos/{id}/")
+    @DeleteMapping("/juego/{id}/")
     public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
         Optional<Juego> juego = juegoRepository.findById(id);
         juego.ifPresent(value -> juegoRepository.delete(value));
         return new ResponseEntity<>(juego.isPresent(), HttpStatus.OK);
     }
 
-    @PutMapping("/juegos/{id}/")
+    @PutMapping("/juego/{id}/")
     public ResponseEntity<Object> update(@PathVariable("id") Long id, @RequestBody Juego juego) {
         Optional<Juego> oldPrisoner = juegoRepository.findById(id);
         if(oldPrisoner.isPresent()) {

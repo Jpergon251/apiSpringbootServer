@@ -5,7 +5,7 @@ import es.joseantonioperez.proyectospringjose.models.Jugador;
 import es.joseantonioperez.proyectospringjose.repositories.JuegoPartidaRepository;
 import es.joseantonioperez.proyectospringjose.repositories.JuegoRepository;
 import es.joseantonioperez.proyectospringjose.repositories.JugadorRepository;
-import es.joseantonioperez.proyectospringjose.repositories.PartidasRepository;
+import es.joseantonioperez.proyectospringjose.repositories.PartidaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class Seeder implements CommandLineRunner {
     @Autowired
     JuegoPartidaRepository juegoPartidaRepository;
     @Autowired
-    PartidasRepository partidasRepository;
+    PartidaRepository partidaRepository;
     @Autowired
     JugadorRepository jugadorRepository;
 
