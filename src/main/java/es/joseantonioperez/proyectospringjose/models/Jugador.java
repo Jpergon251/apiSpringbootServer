@@ -16,7 +16,7 @@ public class Jugador {
 
     private String nombre;
     private Integer edad;
-    private Double horasJugadas;
+    private Integer horasJugadas;
 
     @ManyToOne
     @JoinColumn()
@@ -24,7 +24,7 @@ public class Jugador {
 
     public Jugador(){}
 
-    public Jugador(String nombre, Integer edad, Double horasJugadas) {
+    public Jugador(String nombre, Integer edad, Integer horasJugadas) {
         this.nombre = nombre;
         this.edad = edad;
         this.horasJugadas = horasJugadas;

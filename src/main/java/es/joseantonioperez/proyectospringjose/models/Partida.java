@@ -20,10 +20,9 @@ public class Partida {
 
     public Partida(){};
 
-    public Partida(Double duracion, Date fecha_partida, JuegoPartida juegoPartida) {
+    public Partida(Double duracion, Date fecha_partida) {
         this.duracion = duracion;
         this.fecha_partida = fecha_partida;
-        this.juegoPartida = juegoPartida;
     }
 
 }
