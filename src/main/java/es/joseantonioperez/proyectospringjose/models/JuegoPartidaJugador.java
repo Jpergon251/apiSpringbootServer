@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity @Getter @Setter
-public class JuegoPartida {
+public class JuegoPartidaJugador {
     @Id
     @GeneratedValue
     private Long id;
@@ -19,9 +19,9 @@ public class JuegoPartida {
     private Partida partida;
 
 
-    public JuegoPartida(){}
+    public JuegoPartidaJugador(){}
 
-    public JuegoPartida(Jugador jugador, Partida partida) {
+    public JuegoPartidaJugador(Jugador jugador, Partida partida) {
         this.jugador = jugador;
         this.partida = partida;
     }

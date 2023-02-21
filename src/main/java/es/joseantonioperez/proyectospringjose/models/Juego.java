@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.awt.*;
-import java.util.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,9 +18,8 @@ public class Juego {
     private String descripcion;
 
     private String portada;
-    @ManyToOne
-    @JoinColumn()
-    private JuegoPartida juegoPartida;
+    @OneToMany(mappedBy = "juego")
+    private List<JuegoPartidaJugador> juegoPartidaJugador;
 
     public Juego(){}
 

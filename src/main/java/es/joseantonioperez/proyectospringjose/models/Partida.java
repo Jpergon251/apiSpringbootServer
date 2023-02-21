@@ -16,7 +16,7 @@ public class Partida {
 
     @ManyToOne
     @JoinColumn()
-    private JuegoPartida juegoPartida;
+    private JuegoPartidaJugador juegoPartidaJugador;
 
     public Partida(){};
 
