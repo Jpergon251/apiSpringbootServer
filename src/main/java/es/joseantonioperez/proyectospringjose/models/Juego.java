@@ -15,9 +15,6 @@ public class Juego {
     private Long id;
 
     private String nombre;
-    private String descripcion;
-
-    private String portada;
     @OneToMany(mappedBy = "juego")
     private List<JuegoPartidaJugador> juegoPartidaJugador;
 
@@ -25,6 +22,7 @@ public class Juego {
 
 
     public Juego(String nombre) {
+
         this.nombre = nombre;
     }
 }

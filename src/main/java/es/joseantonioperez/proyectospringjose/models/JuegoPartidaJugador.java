@@ -10,6 +10,10 @@ public class JuegoPartidaJugador {
     @GeneratedValue
     private Long id;
 
+
+    @ManyToOne
+    @JoinColumn()
+    private Juego juego;
     @ManyToOne
     @JoinColumn()
     private Jugador jugador;
@@ -19,10 +23,13 @@ public class JuegoPartidaJugador {
     private Partida partida;
 
 
-    public JuegoPartidaJugador(){}
+    public JuegoPartidaJugador() {
+    }
 
-    public JuegoPartidaJugador(Jugador jugador, Partida partida) {
+    public JuegoPartidaJugador(Juego juego, Jugador jugador, Partida partida) {
+        this.juego = juego;
         this.jugador = jugador;
         this.partida = partida;
     }
 }
+

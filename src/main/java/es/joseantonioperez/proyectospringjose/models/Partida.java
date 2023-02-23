@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity @Getter @Setter
 public class Partida {
@@ -12,17 +13,16 @@ public class Partida {
     @GeneratedValue
     private Long id;
     private Double duracion;
-    private Date fecha_partida;
+    private Date fechaPartida;
 
-    @ManyToOne
-    @JoinColumn()
-    private JuegoPartidaJugador juegoPartidaJugador;
+    @OneToMany(mappedBy = "partida")
+    private List<JuegoPartidaJugador> juegoPartidaJugador;
 
     public Partida(){};
 
-    public Partida(Double duracion, Date fecha_partida) {
+    public Partida(Double duracion, Date fechaPartida) {
         this.duracion = duracion;
-        this.fecha_partida = fecha_partida;
+        this.fechaPartida = fechaPartida;
     }
 
 }

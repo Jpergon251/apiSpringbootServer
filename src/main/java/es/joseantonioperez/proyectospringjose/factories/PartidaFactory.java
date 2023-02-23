@@ -16,7 +16,7 @@ import java.util.stream.*;
 public class PartidaFactory {
     Faker esFaker =  new Faker(new Locale("es-ES"));
 
-    public List<Partida> get (int number, List<JuegoPartidaJugador> juegoPartidaJugador){
+    public List<Partida> get (int number){
         return IntStream.range(0,number)
                 .mapToObj(x -> new Partida(
                         esFaker.number().randomDouble(1, 480,3600),

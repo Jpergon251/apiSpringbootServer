@@ -6,16 +6,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 import java.util.stream.*;
 @Component
 public class JuegoFactory {
     Faker esFaker = new Faker(new Locale("es-ES"));
-    Random rand = new Random();
     public List<Juego> get(int number){
 
         return IntStream.range(0, number)
                 .mapToObj(x -> new Juego(
+                        esFaker.name().title()
                         ))
                 .collect(Collectors.toList());
     }
