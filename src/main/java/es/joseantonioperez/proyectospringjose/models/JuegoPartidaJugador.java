@@ -25,11 +25,5 @@ public class JuegoPartidaJugador {
 
     public JuegoPartidaJugador() {
     }
-
-    public JuegoPartidaJugador(Juego juego, Jugador jugador, Partida partida) {
-        this.juego = juego;
-        this.jugador = jugador;
-        this.partida = partida;
-    }
 }
 

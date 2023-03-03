@@ -46,5 +46,7 @@ public class Seeder implements CommandLineRunner {
         List<Partida> partidas = partidaFactory.get(10);
         partidaRepository.saveAll(partidas);
 
-    }
+        List<JuegoPartidaJugador> juegoPartidaJugadors = juegoPartidaJugadorFactory.get(2,juegos,jugadores,partidas);
+        juegoPartidaJugadorRepository.saveAll(juegoPartidaJugadors);
+     }
 }

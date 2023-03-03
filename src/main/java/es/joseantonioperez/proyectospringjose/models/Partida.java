@@ -13,16 +13,13 @@ public class Partida {
     @GeneratedValue
     private Long id;
     private Double duracion;
-    private Date fechaPartida;
-
     @OneToMany(mappedBy = "partida")
     private List<JuegoPartidaJugador> juegoPartidaJugador;
 
-    public Partida(){};
+    public Partida(double v){};
 
     public Partida(Double duracion, Date fechaPartida) {
         this.duracion = duracion;
-        this.fechaPartida = fechaPartida;
     }
 
 }
