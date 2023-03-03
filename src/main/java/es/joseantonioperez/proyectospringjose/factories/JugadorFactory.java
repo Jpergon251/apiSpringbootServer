@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
+
 import java.util.stream.*;
 
 @Component
@@ -16,7 +16,7 @@ public class JugadorFactory {
     public  List<Jugador> get(int number){
         return IntStream.range(0,number)
                 .mapToObj(x ->new Jugador(
-                        esFaker.funnyName().toString(),
+                        esFaker.esports().player(),
                         esFaker.number().numberBetween(16,35),
                         esFaker.number().numberBetween(450,10000)
                 ))

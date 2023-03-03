@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Objects;
 import java.util.Optional;
 @RestController
 public class JuegoController {
@@ -21,7 +20,7 @@ public class JuegoController {
         return new ResponseEntity<>(juegoRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/juegos/create")
+    @PostMapping("/juego/create")
     public ResponseEntity<Object> create(@RequestBody Juego juego) {
         juegoRepository.save(juego);
         return new ResponseEntity<>(juego, HttpStatus.OK);
@@ -36,8 +35,8 @@ public class JuegoController {
 
     @PutMapping("/juego/{id}/")
     public ResponseEntity<Object> update(@PathVariable("id") Long id, @RequestBody Juego juego) {
-        Optional<Juego> oldPrisoner = juegoRepository.findById(id);
-        if(oldPrisoner.isPresent()) {
+        Optional<Juego> oldJuego = juegoRepository.findById(id);
+        if(oldJuego.isPresent()) {
             juego.setId(id);
             juegoRepository.save(juego);
             return new ResponseEntity<>(juego, HttpStatus.OK);

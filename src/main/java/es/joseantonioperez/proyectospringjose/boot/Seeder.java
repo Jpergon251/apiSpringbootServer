@@ -5,7 +5,9 @@ import es.joseantonioperez.proyectospringjose.factories.JuegoPartidaJugadorFacto
 import es.joseantonioperez.proyectospringjose.factories.JugadorFactory;
 import es.joseantonioperez.proyectospringjose.factories.PartidaFactory;
 import es.joseantonioperez.proyectospringjose.models.Juego;
+import es.joseantonioperez.proyectospringjose.models.JuegoPartidaJugador;
 import es.joseantonioperez.proyectospringjose.models.Jugador;
+import es.joseantonioperez.proyectospringjose.models.Partida;
 import es.joseantonioperez.proyectospringjose.repositories.JuegoPartidaJugadorRepository;
 import es.joseantonioperez.proyectospringjose.repositories.JuegoRepository;
 import es.joseantonioperez.proyectospringjose.repositories.JugadorRepository;
@@ -39,6 +41,10 @@ public class Seeder implements CommandLineRunner {
     public void run(String... args) {
         List<Jugador> jugadores = jugadorFactory.get(15);
         jugadorRepository.saveAll(jugadores);
+        List<Juego> juegos = juegoFactory.get(5);
+        juegoRepository.saveAll(juegos);
+        List<Partida> partidas = partidaFactory.get(10);
+        partidaRepository.saveAll(partidas);
 
     }
 }

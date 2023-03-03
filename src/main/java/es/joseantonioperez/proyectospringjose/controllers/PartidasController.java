@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Optional;
+@RestController
 public class PartidasController {
     @Autowired
     PartidaRepository partidaRepository;
@@ -35,8 +36,8 @@ public class PartidasController {
 
     @PutMapping("/partida/{id}/")
     public ResponseEntity<Object> update(@PathVariable("id") Long id, @RequestBody Partida partida) {
-        Optional<Partida> oldJugador = partidaRepository.findById(id);
-        if(oldJugador.isPresent()) {
+        Optional<Partida> oldPartida = partidaRepository.findById(id);
+        if(oldPartida.isPresent()) {
             partida.setId(id);
             partidaRepository.save(partida);
             return new ResponseEntity<>(partida, HttpStatus.OK);

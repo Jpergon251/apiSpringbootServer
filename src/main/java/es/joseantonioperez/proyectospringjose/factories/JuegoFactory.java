@@ -14,7 +14,7 @@ public class JuegoFactory {
 
         return IntStream.range(0, number)
                 .mapToObj(x -> new Juego(
-                        esFaker.name().title()
+                        esFaker.esports().game()
                         ))
                 .collect(Collectors.toList());
     }
