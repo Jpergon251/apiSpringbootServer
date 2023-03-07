@@ -16,14 +16,16 @@ public class JuegoPartidaJugadorFactory {
 
 
 
-    public List<JuegoPartidaJugador> get(int number, List<Juego> juegos, List<Jugador> jugadores, List<Partida> partidas){
+    public List<JuegoPartidaJugador> get(int number, List<Juego> juegos, List<Partida> partidas, List<Jugador> jugadores){
 
 
 
         return IntStream.range(0,number)
 
                 .mapToObj( x -> new JuegoPartidaJugador(
-
+                        juegos.get(new Random().nextInt(juegos.size())),
+                        partidas.get(new Random().nextInt(partidas.size())),
+                        jugadores.get(new Random().nextInt(jugadores.size()))
                         ))
                 .collect(Collectors.toList());
     }

@@ -16,10 +16,11 @@ public class Partida {
     @OneToMany(mappedBy = "partida")
     private List<JuegoPartidaJugador> juegoPartidaJugador;
 
-    public Partida(double v){};
+    public Partida(){
 
-    public Partida(Double duracion, Date fechaPartida) {
+    };
+
+    public Partida(double duracion) {
         this.duracion = duracion;
     }
-
 }

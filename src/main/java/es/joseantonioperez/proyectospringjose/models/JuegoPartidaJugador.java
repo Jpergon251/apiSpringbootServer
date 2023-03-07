@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,20 +11,27 @@ public class JuegoPartidaJugador {
     @GeneratedValue
     private Long id;
 
-
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "juego")
+    @JsonBackReference
     private Juego juego;
-    @ManyToOne
-    @JoinColumn()
-    private Jugador jugador;
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "partida")
+    @JsonBackReference
     private Partida partida;
 
+    @ManyToOne
+    @JoinColumn(name = "jugador")
+    @JsonBackReference
+    private Jugador jugador;
 
     public JuegoPartidaJugador() {
+    }
+    public JuegoPartidaJugador(Juego juego,  Partida partida, Jugador jugador) {
+        this.juego = juego;
+        this.partida = partida;
+        this.jugador = jugador;
     }
 }
 

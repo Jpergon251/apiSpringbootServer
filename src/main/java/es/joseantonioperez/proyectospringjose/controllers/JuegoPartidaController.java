@@ -16,7 +16,7 @@ public class JuegoPartidaController {
     @GetMapping("/juegoPartidajugador/")
     public ResponseEntity<Object> index() {return new ResponseEntity<>(juegoPartidaJugadorRepository.findAll(),HttpStatus.OK);}
 
-    @GetMapping("/juegoPartidajugador/{id}/")
+    @GetMapping("/juegoPartidajugador/{id}")
     public ResponseEntity<Object> show(@PathVariable("id") Long id) {
         return new ResponseEntity<>(juegoPartidaJugadorRepository.findById(id), HttpStatus.OK);
     }
