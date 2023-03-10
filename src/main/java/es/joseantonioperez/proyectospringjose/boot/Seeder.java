@@ -4,14 +4,8 @@ import es.joseantonioperez.proyectospringjose.factories.JuegoFactory;
 import es.joseantonioperez.proyectospringjose.factories.JuegoPartidaJugadorFactory;
 import es.joseantonioperez.proyectospringjose.factories.JugadorFactory;
 import es.joseantonioperez.proyectospringjose.factories.PartidaFactory;
-import es.joseantonioperez.proyectospringjose.models.Juego;
-import es.joseantonioperez.proyectospringjose.models.JuegoPartidaJugador;
-import es.joseantonioperez.proyectospringjose.models.Jugador;
-import es.joseantonioperez.proyectospringjose.models.Partida;
-import es.joseantonioperez.proyectospringjose.repositories.JuegoPartidaJugadorRepository;
-import es.joseantonioperez.proyectospringjose.repositories.JuegoRepository;
-import es.joseantonioperez.proyectospringjose.repositories.JugadorRepository;
-import es.joseantonioperez.proyectospringjose.repositories.PartidaRepository;
+import es.joseantonioperez.proyectospringjose.models.*;
+import es.joseantonioperez.proyectospringjose.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,6 +14,8 @@ import java.util.List;
 
 @Component
 public class Seeder implements CommandLineRunner {
+    @Autowired
+    UserRepository userRepository;
     @Autowired
     JugadorRepository jugadorRepository;
     @Autowired
@@ -39,6 +35,8 @@ public class Seeder implements CommandLineRunner {
     JuegoPartidaJugadorFactory juegoPartidaJugadorFactory;
     @Override
     public void run(String... args) {
+        User testUser = new User("Jose", "pestillo");
+        userRepository.save(testUser);
         List<Jugador> jugadores = jugadorFactory.get(15);
         jugadorRepository.saveAll(jugadores);
         List<Juego> juegos = juegoFactory.get(5);

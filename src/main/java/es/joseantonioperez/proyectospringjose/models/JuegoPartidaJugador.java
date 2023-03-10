@@ -13,17 +13,17 @@ public class JuegoPartidaJugador {
 
     @ManyToOne
     @JoinColumn(name = "juego")
-    @JsonBackReference
+    @JsonBackReference(value = "juego-partida")
     private Juego juego;
 
     @ManyToOne
     @JoinColumn(name = "partida")
-    @JsonBackReference
+    @JsonBackReference(value = "partida")
     private Partida partida;
 
     @ManyToOne
     @JoinColumn(name = "jugador")
-    @JsonBackReference
+    @JsonBackReference(value = "jugador-partida")
     private Jugador jugador;
 
     public JuegoPartidaJugador() {

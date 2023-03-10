@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class Jugador {
     private Integer edad;
     private Integer horasJugadas;
 
+    @JsonManagedReference(value = "jugador-partida")
     @OneToMany(mappedBy = "jugador")
     private List<JuegoPartidaJugador> juegoPartidaJugador;
 
