@@ -43,9 +43,11 @@ public class Seeder implements CommandLineRunner {
         juegoRepository.saveAll(juegos);
         List<Partida> partidas = partidaFactory.get(10);
         partidaRepository.saveAll(partidas);
+/*
+    He tenido que comentar este seeder por que me da error al hacer los DELETE
 
         List<JuegoPartidaJugador> juegoPartidaJugadors = juegoPartidaJugadorFactory.get(10,juegos,partidas,jugadores);
         juegoPartidaJugadorRepository.saveAll(juegoPartidaJugadors);
-
+*/
     }
 }

@@ -16,6 +16,7 @@ public class Juego {
     private Long id;
 
     private String nombre;
+
     @JsonManagedReference(value = "juego-partida")
     @OneToMany(mappedBy = "juego")
     private List<JuegoPartidaJugador> juegoPartidaJugador;
