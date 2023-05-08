@@ -10,21 +10,19 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Jugador {
+public class Equipo {
     @Id
     @GeneratedValue
     private Long id;
 
+    @Column(name = "nombre")
     private String nombre;
 
-    private String posicion;
+    @ManyToMany(mappedBy = "equipos")
+    private List<Partida> partidas;
 
-    @ManyToOne
-    @JoinColumn(name = "equipo_id")
-    private Equipo equipo;
-
-    @OneToMany(mappedBy = "jugador")
-    private List<EstadisticasJugador> estadisticasJugadorList;
+    @OneToMany(mappedBy = "equipo")
+    private List<Jugador> jugadores;
 
     // Constructor, getters y setters
 }

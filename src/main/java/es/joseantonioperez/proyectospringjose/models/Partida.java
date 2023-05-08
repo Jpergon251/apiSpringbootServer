@@ -13,16 +13,28 @@ public class Partida {
     @Id
     @GeneratedValue
     private Long id;
-    private Double duracion;
-    @JsonManagedReference(value = "partida")
-    @OneToMany(mappedBy = "partida")
-    private List<JuegoPartidaJugador> juegoPartidaJugador;
 
-    public Partida(){
+    @ManyToOne
+    @JoinColumn(name = "torneo_id")
+    private Torneo torneo;
 
-    };
+    @ManyToMany
+    @JoinTable(
+            name = "partidas_jugadores",
+            joinColumns = @JoinColumn(name = "partida_id"),
+            inverseJoinColumns = @JoinColumn(name = "jugador_id")
+    )
+    private List<Jugador> jugadores;
 
-    public Partida(double duracion) {
-        this.duracion = duracion;
-    }
+    @ManyToMany
+    @JoinTable(
+            name = "partidas_equipos",
+            joinColumns = @JoinColumn(name = "partida_id"),
+            inverseJoinColumns = @JoinColumn(name = "equipo_id")
+    )
+    private List<Equipo> equipos;
+
+    private String resultado;
+
+    // Constructor, getters y setters
 }
