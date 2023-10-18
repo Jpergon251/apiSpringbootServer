@@ -1,6 +1,5 @@
 package es.joseantonioperez.proyectospringjose.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,14 +14,24 @@ public class Equipo {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "nombre")
     private String nombre;
+    private String entrenador;
+    private String historial;
 
-    @ManyToMany(mappedBy = "equipos")
-    private List<Partida> partidas;
+    @ElementCollection
 
-    @OneToMany(mappedBy = "equipo")
-    private List<Jugador> jugadores;
+    private List<String> jugadores;
 
-    // Constructor, getters y setters
+    // Constructor
+
+    public Equipo() {
+        // Constructor sin argumentos
+    }
+
+    public Equipo(String nombre, String entrenador, String historial , List<String> jugadores) {
+        this.nombre = nombre;
+        this.entrenador = entrenador;
+        this.historial = historial;
+        this.jugadores = jugadores;
+    }
 }

@@ -1,11 +1,8 @@
 package es.joseantonioperez.proyectospringjose.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Getter
@@ -16,15 +13,24 @@ public class Jugador {
     private Long id;
 
     private String nombre;
-
     private String posicion;
+    private Integer edad;
 
     @ManyToOne
-    @JoinColumn(name = "equipo_id")
+    @JoinColumn(name = "team_id") // Esta anotación especifica la columna en la tabla "Jugador" que almacena la clave foránea "team_id"
     private Equipo equipo;
 
-    @OneToMany(mappedBy = "jugador")
-    private List<EstadisticasJugador> estadisticasJugadorList;
+    // Constructor
 
-    // Constructor, getters y setters
+    public Jugador() {
+        // Constructor sin argumentos
+    }
+
+    public Jugador(String nombre, String posicion, Integer edad) {
+        this.nombre = nombre;
+        this.posicion = posicion;
+        this.edad = edad;
+    }
+
+
 }

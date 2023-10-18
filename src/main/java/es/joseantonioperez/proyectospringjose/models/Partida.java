@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -14,27 +15,28 @@ public class Partida {
     @GeneratedValue
     private Long id;
 
+    private LocalDateTime fecha;
+    private String equipoLocal;
+    private String equipoVisitante;
+    private String resultado;
+    private int duracion;
+
     @ManyToOne
-    @JoinColumn(name = "torneo_id")
+    @JoinColumn(name = "tournament_id")
     private Torneo torneo;
 
-    @ManyToMany
-    @JoinTable(
-            name = "partidas_jugadores",
-            joinColumns = @JoinColumn(name = "partida_id"),
-            inverseJoinColumns = @JoinColumn(name = "jugador_id")
-    )
-    private List<Jugador> jugadores;
+    // Constructor
 
-    @ManyToMany
-    @JoinTable(
-            name = "partidas_equipos",
-            joinColumns = @JoinColumn(name = "partida_id"),
-            inverseJoinColumns = @JoinColumn(name = "equipo_id")
-    )
-    private List<Equipo> equipos;
+    public Partida() {
+        // Constructor sin argumentos
+    }
 
-    private String resultado;
+    public Partida(LocalDateTime fecha, String equipoLocal, String equipoVisitante, String resultado, int duracion) {
+        this.fecha = fecha;
+        this.equipoLocal = equipoLocal;
+        this.equipoVisitante = equipoVisitante;
+        this.resultado = resultado;
+        this.duracion = duracion;
+    }
 
-    // Constructor, getters y setters
 }

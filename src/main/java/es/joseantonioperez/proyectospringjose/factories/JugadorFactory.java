@@ -13,12 +13,14 @@ import java.util.stream.*;
 public class JugadorFactory {
     Faker esFaker =  new Faker(new Locale("es-ES"));
 
+
     public  List<Jugador> get(int number){
         return IntStream.range(0,number)
                 .mapToObj(x ->new Jugador(
-                        esFaker.esports().player(),
-                        esFaker.number().numberBetween(16,35),
-                        esFaker.number().numberBetween(450,10000)
+                        esFaker.esports().player(), // Genera un nombre completo aleatorio
+                        esFaker.options().option("jungla", "mid", "top", "bot", "support"),
+                        esFaker.number().numberBetween(18, 35) // Genera una edad aleatoria entre 18 y 35 años
+
                 ))
                 .collect(Collectors.toList());
     }

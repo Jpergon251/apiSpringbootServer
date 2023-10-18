@@ -1,53 +1,52 @@
 package es.joseantonioperez.proyectospringjose.boot;
 
-import es.joseantonioperez.proyectospringjose.factories.JuegoFactory;
-import es.joseantonioperez.proyectospringjose.factories.JuegoPartidaJugadorFactory;
-import es.joseantonioperez.proyectospringjose.factories.JugadorFactory;
-import es.joseantonioperez.proyectospringjose.factories.PartidaFactory;
+import es.joseantonioperez.proyectospringjose.factories.*;
 import es.joseantonioperez.proyectospringjose.models.*;
 import es.joseantonioperez.proyectospringjose.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.util.*;
 
 @Component
 public class Seeder implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
     @Autowired
+    EquipoRepository equipoRepository;
+    @Autowired
     JugadorRepository jugadorRepository;
     @Autowired
-    JuegoRepository juegoRepository;
-    @Autowired
     PartidaRepository partidaRepository;
-    @Autowired
-    JuegoPartidaJugadorRepository juegoPartidaJugadorRepository;
+
 
     @Autowired
-    JuegoFactory juegoFactory;
+    EquipoFactory equipoFactory;
     @Autowired
     JugadorFactory jugadorFactory;
     @Autowired
     PartidaFactory partidaFactory;
-    @Autowired
-    JuegoPartidaJugadorFactory juegoPartidaJugadorFactory;
+
     @Override
     public void run(String... args) {
         User testUser = new User("Jose", "pestillo");
         userRepository.save(testUser);
-        List<Jugador> jugadores = jugadorFactory.get(15);
+
+        // Genera una lista de jugadores únicos
+        List<Jugador> jugadores = jugadorFactory.get(50);
         jugadorRepository.saveAll(jugadores);
-        List<Juego> juegos = juegoFactory.get(5);
-        juegoRepository.saveAll(juegos);
+
+        // Genera una lista de 5 equipos, cada uno con 6 jugadores ficticios
+
+        for (int i = 0; i < 5; i++) {
+            List<Jugador> jugadoresEquipo = jugadores.subList(i * 6, (i + 1) * 6);
+            Equipo equipo = equipoFactory.get(1, jugadoresEquipo).get(0);
+            equipoRepository.save(equipo);
+        }
+
         List<Partida> partidas = partidaFactory.get(10);
         partidaRepository.saveAll(partidas);
-/*
-    He tenido que comentar este seeder por que me da error al hacer los DELETE
 
-        List<JuegoPartidaJugador> juegoPartidaJugadors = juegoPartidaJugadorFactory.get(10,juegos,partidas,jugadores);
-        juegoPartidaJugadorRepository.saveAll(juegoPartidaJugadors);
-*/
     }
 }
