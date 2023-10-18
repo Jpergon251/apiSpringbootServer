@@ -18,7 +18,7 @@ public class JugadorFactory {
         return IntStream.range(0,number)
                 .mapToObj(x ->new Jugador(
                         esFaker.esports().player(), // Genera un nombre completo aleatorio
-                        esFaker.options().option("jungla", "mid", "top", "bot", "support"),
+                        esFaker.options().option("jungla", "mid", "top", "adc", "support"),
                         esFaker.number().numberBetween(18, 35) // Genera una edad aleatoria entre 18 y 35 años
 
                 ))
