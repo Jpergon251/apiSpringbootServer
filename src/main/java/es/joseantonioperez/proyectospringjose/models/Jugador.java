@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,12 +13,19 @@ public class Jugador {
     @GeneratedValue
     private Long id;
 
+    private String nick;
     private String nombre;
     private String posicion;
     private Integer edad;
-
+    private String nacionalidad;
+    private String campeonFavorito;
+    private Integer bajas;
+    private Integer muertes;
+    private Integer asistencias;
+    private String foto;
+    @JsonIgnoreProperties({"jugadores"})
     @ManyToOne
-    @JoinColumn(name = "team_id") // Esta anotación especifica la columna en la tabla "Jugador" que almacena la clave foránea "team_id"
+    @JoinColumn() // Esta anotación especifica la columna en la tabla "Jugador" que almacena la clave foránea "team_id"
     private Equipo equipo;
 
     // Constructor
@@ -26,11 +34,17 @@ public class Jugador {
         // Constructor sin argumentos
     }
 
-    public Jugador(String nombre, String posicion, Integer edad) {
+    public Jugador(String nick, String nombre, String posicion, Integer edad, String nacionalidad, String campeonFavorito, Integer bajas, Integer muertes, Integer asistencias, String foto, Equipo equipo) {
+        this.nick = nick;
         this.nombre = nombre;
         this.posicion = posicion;
         this.edad = edad;
+        this.nacionalidad = nacionalidad;
+        this.campeonFavorito = campeonFavorito;
+        this.bajas = bajas;
+        this.muertes = muertes;
+        this.asistencias = asistencias;
+        this.foto = foto;
+        this.equipo = equipo;
     }
-
-
 }

@@ -62,7 +62,7 @@ class ProyectoSpringJoseApplicationTests {
         mvc.perform(get("/juego/").contentType(MediaType.APPLICATION_JSON).header("Authorization", "Bearer " + authenticateAndGetToken() ))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
-        mvc.perform(get("/partida/").contentType(MediaType.APPLICATION_JSON).header("Authorization", "Bearer " + authenticateAndGetToken()))
+        mvc.perform(get("/partidas/").contentType(MediaType.APPLICATION_JSON).header("Authorization", "Bearer " + authenticateAndGetToken()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
 
@@ -82,7 +82,7 @@ class ProyectoSpringJoseApplicationTests {
 
         long partidaCount = partidaRepository.count();
         String testPartida = "{\"duracion\": 1500.0}";
-        mvc.perform(post("/partida/create")
+        mvc.perform(post("/partidas/create")
                         .header("Authorization", "Bearer " + authenticateAndGetToken())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(testPartida))
@@ -118,7 +118,7 @@ class ProyectoSpringJoseApplicationTests {
                 .andExpect(jsonPath("$.nombre").value("Minecraft"));
 
         String testPartida = "{\"duracion\": 1500.0}";
-        mvc.perform(put("/partida/3/")
+        mvc.perform(put("/partidas/3/")
                         .header("Authorization", "Bearer " + authenticateAndGetToken())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(testPartida))
@@ -153,7 +153,7 @@ class ProyectoSpringJoseApplicationTests {
 
         long partidaCount = partidaRepository.count();
 
-        mvc.perform(delete("/partida/5/").contentType(MediaType.APPLICATION_JSON)
+        mvc.perform(delete("/partidas/5/").contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + authenticateAndGetToken()))
                 .andExpect(status().isOk())
                 .andExpect(content().string("true"));

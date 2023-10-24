@@ -1,6 +1,9 @@
 package es.joseantonioperez.proyectospringjose.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,24 +17,44 @@ public class Equipo {
     @GeneratedValue
     private Long id;
 
+
+
     private String nombre;
-    private String entrenador;
-    private String historial;
+    private String nickCoach;
+    private String coach;
+    private String logo;
 
-    @ElementCollection
+    private Integer victorias;
+    private Integer derrotas;
+    private Integer oro;
+    private Integer minions;
+    private Integer barones;
+    private Integer torres;
+    private Integer dragones;
 
-    private List<String> jugadores;
+
+
+
+    @OneToMany(mappedBy = "equipo")
+
+
+    private List<Jugador> jugadores;
+
 
     // Constructor
-
     public Equipo() {
         // Constructor sin argumentos
     }
-
-    public Equipo(String nombre, String entrenador, String historial , List<String> jugadores) {
+    public Equipo(
+            String nombre,
+            String coach,
+            String nickCoach
+            ) {
         this.nombre = nombre;
-        this.entrenador = entrenador;
-        this.historial = historial;
-        this.jugadores = jugadores;
+        this.coach = coach;
+        this.nickCoach = nickCoach;
+
+
     }
+
 }
