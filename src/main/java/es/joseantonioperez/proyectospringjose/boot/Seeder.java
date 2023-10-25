@@ -1,7 +1,9 @@
 package es.joseantonioperez.proyectospringjose.boot;
 
+import es.joseantonioperez.proyectospringjose.factories.PartidaFactory;
 import es.joseantonioperez.proyectospringjose.models.Equipo;
 import es.joseantonioperez.proyectospringjose.models.Jugador;
+import es.joseantonioperez.proyectospringjose.models.Partida;
 import es.joseantonioperez.proyectospringjose.models.User;
 import es.joseantonioperez.proyectospringjose.repositories.EquipoRepository;
 import es.joseantonioperez.proyectospringjose.repositories.JugadorRepository;
@@ -25,6 +27,9 @@ public class Seeder implements CommandLineRunner {
     @Autowired
     PartidaRepository partidaRepository;
 
+
+    @Autowired
+    PartidaFactory partidaFactory;
 
     @Override
     public void run(String... args) {
@@ -166,7 +171,7 @@ public class Seeder implements CommandLineRunner {
         jugadores.add(isma);
 
         Jugador fresskowy = new Jugador(
-                "FRESSKOWY",
+                "Fresskowy",
                 "Bartłomiej Przewoźnik",
                 "MID",
                 23,
@@ -1383,10 +1388,13 @@ public class Seeder implements CommandLineRunner {
 
         // Creamos las partidas
 
+        List<Partida> partidas = partidaFactory.get(50, equipos);
+
+
 
         //Guardamos los datos en los repositorios
         equipoRepository.saveAll(equipos);
         jugadorRepository.saveAll(jugadores);
-
+        partidaRepository.saveAll(partidas);
     }
 }

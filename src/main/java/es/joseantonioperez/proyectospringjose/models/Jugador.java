@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class Jugador {
     @JsonIgnoreProperties({"jugadores"})
     @ManyToOne
     @JoinColumn() // Esta anotación especifica la columna en la tabla "Jugador" que almacena la clave foránea "team_id"
+    @JsonBackReference
     private Equipo equipo;
 
     // Constructor

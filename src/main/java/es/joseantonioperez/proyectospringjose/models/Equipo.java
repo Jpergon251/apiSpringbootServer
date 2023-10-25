@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -36,8 +37,7 @@ public class Equipo {
 
 
     @OneToMany(mappedBy = "equipo")
-
-
+    @JsonManagedReference
     private List<Jugador> jugadores;
 
 
