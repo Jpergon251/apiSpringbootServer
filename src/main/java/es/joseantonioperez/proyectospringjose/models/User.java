@@ -20,11 +20,13 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
+    private String email;
     private String password;
 
 
-    public User(String username, String password) {
+    public User(String username, String email, String password) {
         this.username = username;
+        this.email = email;
         this.password = new BCryptPasswordEncoder().encode(password);
     }
 }

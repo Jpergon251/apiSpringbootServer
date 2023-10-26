@@ -35,7 +35,7 @@ public class Seeder implements CommandLineRunner {
     public void run(String... args) {
 
         // Usuario para testear
-        User testUser = new User("Jose", "pestillo");
+        User testUser = new User("Jose","jpergon251@g.educaand.es", "pestillo");
         userRepository.save(testUser);
 
 
