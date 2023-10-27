@@ -7,6 +7,8 @@ import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import es.joseantonioperez.proyectospringjose.config.RsaKeyProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -29,6 +31,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -37,19 +41,16 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-
+	@Autowired
+	@Qualifier("myUserDetailsService")
+	MyUserDetailsService myUserDetailsService;
 	private final RsaKeyProperties jwtConfigProperties;
 
 	public SecurityConfig(RsaKeyProperties jwtConfigProperties) {
 		this.jwtConfigProperties = jwtConfigProperties;
 	}
 
-//	@Bean
-//	public InMemoryUserDetailsManager users() {
-//		return new InMemoryUserDetailsManager(User.withUsername("javier").password("{noop}pestillo").authorities("read").build());
-//	}
-
-	@Bean
+    @Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http
 				.csrf(AbstractHttpConfigurer::disable)
@@ -91,11 +92,13 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	CorsConfigurationSource corsConfigurationSource() {
+	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(List.of("*"));
+		configuration.setAllowedOrigins(List.of("*")); // Cambia esto al origen correcto
 		configuration.setAllowedHeaders(List.of("*"));
-		configuration.setAllowedMethods(List.of("*"));
+		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+		configuration.setAllowCredentials(true);
+
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;

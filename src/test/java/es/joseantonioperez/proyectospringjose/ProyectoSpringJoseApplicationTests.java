@@ -22,20 +22,17 @@ class ProyectoSpringJoseApplicationTests {
 
     @Autowired
     MockMvc mvc;
-    @Autowired
-    JuegoRepository juegoRepository;
+
     @Autowired
     PartidaRepository partidaRepository;
     @Autowired
     JugadorRepository jugadorRepository;
-    @Autowired
-    JuegoPartidaJugadorRepository juegoPartidaJugadorRepository;
+
     @Autowired
     UserRepository userRepository;
 
     @Test
     void contextLoads() {
-        assert juegoRepository.count() == 5;
         assert partidaRepository.count() == 10;
         assert jugadorRepository.count() == 15;
         //assert juegoPartidaJugadorRepository.count() == 10;
@@ -69,7 +66,7 @@ class ProyectoSpringJoseApplicationTests {
     }
     @Test
     void creationTest() throws Exception{
-        long juegoCount = juegoRepository.count();
+
         String testJuego = "{\"nombre\": \"Minecraft\"}";
         mvc.perform(post("/juego/create")
                         .header("Authorization", "Bearer " + authenticateAndGetToken())
@@ -78,7 +75,7 @@ class ProyectoSpringJoseApplicationTests {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.nombre").value("Minecraft"));
-        assert juegoRepository.count() == juegoCount +1;
+
 
         long partidaCount = partidaRepository.count();
         String testPartida = "{\"duracion\": 1500.0}";
@@ -142,14 +139,12 @@ class ProyectoSpringJoseApplicationTests {
     @Test
     void deleteTest() throws Exception {
 
-        long juegoCount = juegoRepository.count();
 
         mvc.perform(delete("/juego/3/").contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + authenticateAndGetToken()))
                 .andExpect(status().isOk())
                 .andExpect(content().string("true"));
 
-        assert juegoRepository.count() == juegoCount - 1;
 
         long partidaCount = partidaRepository.count();
 

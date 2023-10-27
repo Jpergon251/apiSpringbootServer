@@ -19,7 +19,7 @@ public class AuthController {
         this.tokenService = tokenService;
     }
 
-    @CrossOrigin(origins = "http://localhost:5173")
+
     @PostMapping("/token")
     public String token(Authentication authentication) {
         LOG.debug("Token requested for user: '{}'", authentication.getName());
