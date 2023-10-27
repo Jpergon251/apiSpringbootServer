@@ -1,14 +1,8 @@
 package es.joseantonioperez.proyectospringjose.boot;
 
 import es.joseantonioperez.proyectospringjose.factories.PartidaFactory;
-import es.joseantonioperez.proyectospringjose.models.Equipo;
-import es.joseantonioperez.proyectospringjose.models.Jugador;
-import es.joseantonioperez.proyectospringjose.models.Partida;
-import es.joseantonioperez.proyectospringjose.models.User;
-import es.joseantonioperez.proyectospringjose.repositories.EquipoRepository;
-import es.joseantonioperez.proyectospringjose.repositories.JugadorRepository;
-import es.joseantonioperez.proyectospringjose.repositories.PartidaRepository;
-import es.joseantonioperez.proyectospringjose.repositories.UserRepository;
+import es.joseantonioperez.proyectospringjose.models.*;
+import es.joseantonioperez.proyectospringjose.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
