@@ -22,7 +22,7 @@ public class UserController {
     private UserRepository userRepository;
 
     // Obtener la lista de todos los usuarios
-    @GetMapping
+    @GetMapping("/user/")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     // Crear un nuevo usuario
-    @PostMapping("/user")
+    @PostMapping("/user/")
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
