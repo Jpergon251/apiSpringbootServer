@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -61,6 +62,8 @@ public class SecurityConfig {
 		return http
 				.cors().configurationSource(corsConfigurationSource()).and()
 				.csrf(AbstractHttpConfigurer::disable)
+				.userDetailsService(myUserDetailsService)
+				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/user/create").permitAll())
 				.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
@@ -80,6 +83,8 @@ public class SecurityConfig {
 		return http
 				.cors().configurationSource(corsConfigurationSource()).and()
 				.securityMatcher("/token**")
+				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/user/create").permitAll())
+
 				.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.csrf(AbstractHttpConfigurer::disable)

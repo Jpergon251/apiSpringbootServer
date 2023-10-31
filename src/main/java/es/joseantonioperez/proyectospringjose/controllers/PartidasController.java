@@ -3,18 +3,23 @@ package es.joseantonioperez.proyectospringjose.controllers;
 import es.joseantonioperez.proyectospringjose.models.Partida;
 import es.joseantonioperez.proyectospringjose.repositories.EquipoRepository;
 import es.joseantonioperez.proyectospringjose.repositories.PartidaRepository;
+import es.joseantonioperez.proyectospringjose.services.EquipoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+
 @RestController
 public class  PartidasController {
     @Autowired
     PartidaRepository partidaRepository;
     @Autowired
     EquipoRepository equipoRepository;
+
+    @Autowired
+    private EquipoService equipoService;
     @GetMapping("/partida/")
     public ResponseEntity<Object> index() {return new ResponseEntity<>(partidaRepository.findAll(),HttpStatus.OK);}
 
@@ -26,7 +31,8 @@ public class  PartidasController {
     @PostMapping("/partida/create")
     public ResponseEntity<Object> create(@RequestBody Partida partida) {
         partidaRepository.save(partida);
-
+        equipoService.actualizarDatosEquipo(partida.getEquipoLocal());
+        equipoService.actualizarDatosEquipo(partida.getEquipoVisitante());
         return new ResponseEntity<>(partida, HttpStatus.OK);
     }
 

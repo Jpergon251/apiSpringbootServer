@@ -1,15 +1,17 @@
 package es.joseantonioperez.proyectospringjose.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import es.joseantonioperez.proyectospringjose.services.EquipoService;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Random;
 import java.time.LocalDateTime;
 
 @Entity @Getter @Setter
 public class Partida {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -33,19 +35,17 @@ public class Partida {
     private Integer baronesVisitante;
     private Integer torresVisitante;
     private Integer dragonesVisitante;
+
+
+    private String equipoGanador;
     @ManyToOne
-    @JsonIgnoreProperties({"equipo"})
     private Equipo equipoLocal;
 
     @ManyToOne
-    @JsonIgnoreProperties({"equipo"})
 
     private Equipo equipoVisitante;
 
-    @ManyToOne
-    @JsonIgnoreProperties({"equipo"})
 
-    private Equipo equipoGanador;
 
     // Constructor
 
@@ -87,6 +87,7 @@ public class Partida {
         // Elije aleatoriamente el equipo ganador entre equipoLocal y equipoVisitante
 
         Random random = new Random();
-        this.equipoGanador = random.nextBoolean() ? equipoLocal : equipoVisitante;
+        this.equipoGanador = random.nextBoolean() ? equipoLocal.getNombre() : equipoVisitante.getNombre();
+
     }
 }

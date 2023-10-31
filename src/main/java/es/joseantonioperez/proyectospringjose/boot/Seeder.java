@@ -1,8 +1,15 @@
 package es.joseantonioperez.proyectospringjose.boot;
 
 import es.joseantonioperez.proyectospringjose.factories.PartidaFactory;
-import es.joseantonioperez.proyectospringjose.models.*;
-import es.joseantonioperez.proyectospringjose.repositories.*;
+import es.joseantonioperez.proyectospringjose.models.Equipo;
+import es.joseantonioperez.proyectospringjose.models.Jugador;
+import es.joseantonioperez.proyectospringjose.models.Partida;
+import es.joseantonioperez.proyectospringjose.models.User;
+import es.joseantonioperez.proyectospringjose.repositories.EquipoRepository;
+import es.joseantonioperez.proyectospringjose.repositories.JugadorRepository;
+import es.joseantonioperez.proyectospringjose.repositories.PartidaRepository;
+import es.joseantonioperez.proyectospringjose.repositories.UserRepository;
+import es.joseantonioperez.proyectospringjose.services.EquipoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -24,6 +31,9 @@ public class Seeder implements CommandLineRunner {
 
     @Autowired
     PartidaFactory partidaFactory;
+
+    @Autowired
+    private EquipoService equipoService;
 
     @Override
     public void run(String... args) {
@@ -1384,11 +1394,15 @@ public class Seeder implements CommandLineRunner {
 
         List<Partida> partidas = partidaFactory.get(50, equipos);
 
-
-
         //Guardamos los datos en los repositorios
+
         equipoRepository.saveAll(equipos);
-        jugadorRepository.saveAll(jugadores);
         partidaRepository.saveAll(partidas);
+        jugadorRepository.saveAll(jugadores);
+
+        for (Partida partida : partidas) {
+            equipoService.actualizarDatosEquipo(partida.getEquipoLocal());
+            equipoService.actualizarDatosEquipo(partida.getEquipoVisitante());
+        }
     }
 }

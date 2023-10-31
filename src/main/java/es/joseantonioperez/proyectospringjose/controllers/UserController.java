@@ -6,11 +6,9 @@ import es.joseantonioperez.proyectospringjose.services.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,11 +33,22 @@ public class UserController {
     }
 
     // Crear un nuevo usuario
-    @PostMapping("/user/")
-    public User createUser(@RequestBody User user) {
-        return userRepository.save(user);
-    }
+    @PostMapping("/user/create")
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+        // Comprueba si ya existe un usuario con el mismo nombre de usuario o correo electrónico
+        User existingUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail());
 
+        if (existingUser != null) {
+            // Usuario con el mismo nombre de usuario o correo electrónico ya existe
+            return ResponseEntity.badRequest().body("Nombre de usuario o correo electrónico ya están en uso.");
+        } else {
+            // No existe un usuario con el mismo nombre de usuario o correo electrónico, crea el nuevo usuario
+            // Asegúrate de encriptar la contraseña aquí
+            user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+            User newUser = userRepository.save(user);
+            return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+        }
+    }
     // Actualizar la información de un usuario
     @PutMapping("/user/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
@@ -61,22 +70,4 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/user/login")
-    public ResponseEntity<String> login(@RequestBody User user) {
-        // user debe contener el email y la contraseña proporcionados por el cliente
-
-        User loggedUser = userRepository.findByEmail(user.getEmail());
-
-        if (loggedUser != null && user.getPassword().equals(loggedUser.getPassword())) {
-            // El usuario se autenticó exitosamente
-            // Genera un token de acceso
-            Authentication authentication = new UsernamePasswordAuthenticationToken(loggedUser.getUsername(), null, Collections.emptyList());
-            String accessToken = tokenService.generateToken(authentication);
-
-            return ResponseEntity.ok(accessToken);
-        } else {
-            // Las credenciales son incorrectas
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
-        }
-    }
 }
