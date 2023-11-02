@@ -2,6 +2,7 @@ package es.joseantonioperez.proyectospringjose.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import es.joseantonioperez.proyectospringjose.dto.JugadorDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,5 +49,18 @@ public class Jugador {
         this.asistencias = asistencias;
         this.foto = foto;
         this.equipo = equipo;
+    }
+
+    public Jugador(JugadorDTO jugador){
+        this.nick = jugador.getNick();
+        this.nombre = jugador.getNombre();
+        this.posicion = jugador.getPosicion();
+        this.edad = jugador.getEdad();
+        this.nacionalidad = jugador.getNacionalidad();
+        this.campeonFavorito = jugador.getCampeonFavorito();
+        this.bajas = jugador.getBajas();
+        this.muertes = jugador.getMuertes();
+        this.asistencias = jugador.getAsistencias();
+        this.foto = jugador.getFoto();
     }
 }

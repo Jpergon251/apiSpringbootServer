@@ -1,5 +1,7 @@
 package es.joseantonioperez.proyectospringjose.controllers;
 
+import es.joseantonioperez.proyectospringjose.dto.PartidaDTO;
+import es.joseantonioperez.proyectospringjose.models.Equipo;
 import es.joseantonioperez.proyectospringjose.models.Partida;
 import es.joseantonioperez.proyectospringjose.repositories.EquipoRepository;
 import es.joseantonioperez.proyectospringjose.repositories.PartidaRepository;
@@ -9,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,19 +25,27 @@ public class  PartidasController {
     @Autowired
     private EquipoService equipoService;
     @GetMapping("/partida/")
-    public ResponseEntity<Object> index() {return new ResponseEntity<>(partidaRepository.findAll(),HttpStatus.OK);}
+    public ResponseEntity<Object> index() {
+        List<PartidaDTO> resultado = new ArrayList<>();
+                for( Partida partida : partidaRepository.findAll() ) {
+                    resultado.add(new PartidaDTO(partida));
+                }
+        return new ResponseEntity<>(resultado,HttpStatus.OK);
+    }
 
     @GetMapping("/partida/{id}/")
     public ResponseEntity<Object> show(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(partidaRepository.findById(id), HttpStatus.OK);
+        return new ResponseEntity<>(new PartidaDTO(partidaRepository.findById(id).get()), HttpStatus.OK);
     }
 
     @PostMapping("/partida/create")
-    public ResponseEntity<Object> create(@RequestBody Partida partida) {
-        partidaRepository.save(partida);
-        equipoService.actualizarDatosEquipo(partida.getEquipoLocal());
-        equipoService.actualizarDatosEquipo(partida.getEquipoVisitante());
-        return new ResponseEntity<>(partida, HttpStatus.OK);
+    public ResponseEntity<Object> create(@RequestBody PartidaDTO partidaDTO) {
+
+        equipoService.actualizarDatosEquipo(new Equipo(partidaDTO.getEquipoLocal()));
+        equipoService.actualizarDatosEquipo(new Equipo(partidaDTO.getEquipoVisitante()));
+        return new ResponseEntity<>(
+            new PartidaDTO(partidaRepository.save(new Partida(partidaDTO))), HttpStatus.OK
+        );
     }
 
     @DeleteMapping("/partida/{id}/")

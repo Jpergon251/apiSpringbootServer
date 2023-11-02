@@ -1,13 +1,15 @@
 package es.joseantonioperez.proyectospringjose.controllers;
 
+import es.joseantonioperez.proyectospringjose.dto.EquipoDTO;
 import es.joseantonioperez.proyectospringjose.models.Equipo;
 import es.joseantonioperez.proyectospringjose.repositories.EquipoRepository;
-import org.springframework.beans.factory.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 @RestController
 public class EquipoController {
@@ -17,18 +19,23 @@ public class EquipoController {
 
     @GetMapping("/equipo/")
     public ResponseEntity<Object> index() {
-        return new ResponseEntity<>(equipoRepository.findAll(), HttpStatus.OK);
+        List<EquipoDTO> resultado = new ArrayList<>();
+        for (Equipo equipo: equipoRepository.findAll()) {
+            resultado.add(new EquipoDTO(equipo));
+        }
+        return new ResponseEntity<>(resultado, HttpStatus.OK);
     }
 
     @GetMapping("/equipo/{id}/")
     public ResponseEntity<Object> show(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(equipoRepository.findById(id), HttpStatus.OK);
+        return new ResponseEntity<>(new EquipoDTO(equipoRepository.findById(id).get()), HttpStatus.OK);
     }
 
     @PostMapping("/equipo/create")
-    public ResponseEntity<Object> create(@RequestBody Equipo equipo) {
-        equipoRepository.save(equipo);
-        return new ResponseEntity<>(equipo, HttpStatus.OK);
+    public ResponseEntity<Object> create(@RequestBody EquipoDTO equipoDTO) {
+        return new ResponseEntity<>(
+                new EquipoDTO(equipoRepository.save(new Equipo(equipoDTO))), HttpStatus.OK
+        );
     }
 
     @DeleteMapping("/equipo/{id}/")

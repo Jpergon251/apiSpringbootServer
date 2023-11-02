@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.models;
 
+import es.joseantonioperez.proyectospringjose.dto.PartidaDTO;
 import es.joseantonioperez.proyectospringjose.services.EquipoService;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -89,5 +90,24 @@ public class Partida {
         Random random = new Random();
         this.equipoGanador = random.nextBoolean() ? equipoLocal.getNombre() : equipoVisitante.getNombre();
 
+
+
+    }
+    public Partida(PartidaDTO partidaDTO) {
+        this.id = partidaDTO.getId();
+        this.fecha = partidaDTO.getFecha();
+        this.duracion = partidaDTO.getDuracion();
+        this.oroLocal = partidaDTO.getOroLocal();
+        this.minionsLocal = partidaDTO.getMinionsLocal();
+        this.baronesLocal = partidaDTO.getBaronesLocal();
+        this.torresLocal = partidaDTO.getTorresLocal();
+        this.oroVisitante = partidaDTO.getOroVisitante();
+        this.minionsVisitante = partidaDTO.getMinionsVisitante();
+        this.baronesVisitante = partidaDTO.getBaronesVisitante();
+        this.torresVisitante = partidaDTO.getTorresVisitante();
+        this.dragonesVisitante = partidaDTO.getDragonesVisitante();
+        this.equipoGanador = partidaDTO.getEquipoGanador();
+        this.equipoLocal = new Equipo(partidaDTO.getEquipoLocal());
+        this.equipoVisitante = new Equipo(partidaDTO.getEquipoVisitante());
     }
 }

@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.controllers;
 
+import es.joseantonioperez.proyectospringjose.dto.JugadorDTO;
 import es.joseantonioperez.proyectospringjose.models.Jugador;
 import es.joseantonioperez.proyectospringjose.repositories.JugadorRepository;
 import org.springframework.beans.factory.annotation.*;
@@ -8,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.Optional;
+import java.util.*;
 @RestController
 public class
 JugadorController {
@@ -16,19 +17,26 @@ JugadorController {
     @Autowired
     JugadorRepository jugadorRepository;
     @GetMapping("/jugador/")
-    public ResponseEntity<Object> index() {return new ResponseEntity<>(jugadorRepository.findAll(),HttpStatus.OK);}
+    public ResponseEntity<Object> index() {
+        List<JugadorDTO> resultado = new ArrayList<>();
+        for (Jugador jugador : jugadorRepository.findAll()) {
+            resultado.add(new JugadorDTO(jugador));
+        }
+        return new ResponseEntity<>(resultado,HttpStatus.OK);
+    }
 
     @GetMapping("/jugador/{id}/")
     public ResponseEntity<Object> show(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(jugadorRepository.findById(id), HttpStatus.OK);
+
+        return new ResponseEntity<>(new JugadorDTO(jugadorRepository.findById(id).get()), HttpStatus.OK);
     }
 
     @PostMapping("/jugador/create")
-    public ResponseEntity<Object> create(@RequestBody Jugador jugador) {
-        jugadorRepository.save(jugador);
-        return new ResponseEntity<>(jugador, HttpStatus.OK);
+    public ResponseEntity<Object> create(@RequestBody JugadorDTO jugador) {
+        return new ResponseEntity<>(
+                new JugadorDTO(jugadorRepository.save(new Jugador(jugador))), HttpStatus.OK
+        );
     }
-
     @DeleteMapping("/jugador/{id}/")
     public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
         Optional<Jugador> jugador = jugadorRepository.findById(id);
