@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -71,11 +72,11 @@ public class Equipo {
         this.barones = equipoDTO.getBarones();
         this.torres = equipoDTO.getTorres();
         this.dragones = equipoDTO.getDragones();
-
+        this.jugadores = new ArrayList<>();
         for (JugadorDTO jugadorDTO : equipoDTO.getJugadores()) {
             // Crea una instancia de Jugador a partir de JugadorDTO y luego agrega el jugador a la lista
             Jugador jugador = new Jugador(jugadorDTO);
-            this.jugadores.add(jugador);
+            jugadores.add(jugador);
         }
 
     }

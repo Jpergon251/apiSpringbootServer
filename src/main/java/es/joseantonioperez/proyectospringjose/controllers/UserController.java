@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.controllers;
 
+import es.joseantonioperez.proyectospringjose.dto.UserDTO;
 import es.joseantonioperez.proyectospringjose.models.User;
 import es.joseantonioperez.proyectospringjose.repositories.UserRepository;
 import es.joseantonioperez.proyectospringjose.services.TokenService;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,20 +22,21 @@ public class UserController {
     private UserRepository userRepository;
 
     // Obtener la lista de todos los usuarios
-    @GetMapping("/user/")
+    @GetMapping("/users/")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     // Obtener un usuario por su ID
-    @GetMapping("/user/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+
     // Crear un nuevo usuario
-    @PostMapping("/user/create")
+    @PostMapping("/users/create")
     public ResponseEntity<?> createUser(@RequestBody User user) {
         // Comprueba si ya existe un usuario con el mismo nombre de usuario o correo electrónico
         User existingUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail());
@@ -50,7 +53,7 @@ public class UserController {
         }
     }
     // Actualizar la información de un usuario
-    @PutMapping("/user/{id}")
+    @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
         return userRepository.findById(id)
                 .map(user -> {
@@ -64,7 +67,7 @@ public class UserController {
     }
 
     // Eliminar un usuario
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
         return ResponseEntity.noContent().build();

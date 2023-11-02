@@ -63,7 +63,7 @@ public class SecurityConfig {
 				.cors().configurationSource(corsConfigurationSource()).and()
 				.csrf(AbstractHttpConfigurer::disable)
 				.userDetailsService(myUserDetailsService)
-				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/user/create").permitAll())
+				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/users/create").permitAll())
 				.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)

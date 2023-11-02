@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -52,8 +53,9 @@ public class EquipoDTO implements Serializable {
         this.barones = equipo.getBarones();
         this.torres = equipo.getTorres();
         this.dragones = equipo.getDragones();
+        this.jugadores = new ArrayList<>();
         for (Jugador jugador : equipo.getJugadores()){
-            jugadores.add(new JugadorDTO(jugador));
+            this.jugadores.add(new JugadorDTO(jugador));
         }
     }
 

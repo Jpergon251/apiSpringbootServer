@@ -24,7 +24,7 @@ public class  PartidasController {
 
     @Autowired
     private EquipoService equipoService;
-    @GetMapping("/partida/")
+    @GetMapping("/partidas/")
     public ResponseEntity<Object> index() {
         List<PartidaDTO> resultado = new ArrayList<>();
                 for( Partida partida : partidaRepository.findAll() ) {
@@ -33,12 +33,12 @@ public class  PartidasController {
         return new ResponseEntity<>(resultado,HttpStatus.OK);
     }
 
-    @GetMapping("/partida/{id}/")
+    @GetMapping("/partidas/{id}/")
     public ResponseEntity<Object> show(@PathVariable("id") Long id) {
         return new ResponseEntity<>(new PartidaDTO(partidaRepository.findById(id).get()), HttpStatus.OK);
     }
 
-    @PostMapping("/partida/create")
+    @PostMapping("/partidas/create")
     public ResponseEntity<Object> create(@RequestBody PartidaDTO partidaDTO) {
 
         equipoService.actualizarDatosEquipo(new Equipo(partidaDTO.getEquipoLocal()));
@@ -48,14 +48,14 @@ public class  PartidasController {
         );
     }
 
-    @DeleteMapping("/partida/{id}/")
+    @DeleteMapping("/partidas/{id}/")
     public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
         Optional<Partida> partida = partidaRepository.findById(id);
         partida.ifPresent(value -> partidaRepository.delete(value));
         return new ResponseEntity<>(partida.isPresent(), HttpStatus.OK);
     }
 
-    @PutMapping("/partida/{id}/")
+    @PutMapping("/partidas/{id}/")
     public ResponseEntity<Object> update(@PathVariable("id") Long id, @RequestBody Partida partida) {
         Optional<Partida> oldPartida = partidaRepository.findById(id);
         if(oldPartida.isPresent()) {

@@ -16,7 +16,7 @@ JugadorController {
 
     @Autowired
     JugadorRepository jugadorRepository;
-    @GetMapping("/jugador/")
+    @GetMapping("/jugadores/")
     public ResponseEntity<Object> index() {
         List<JugadorDTO> resultado = new ArrayList<>();
         for (Jugador jugador : jugadorRepository.findAll()) {
@@ -25,26 +25,26 @@ JugadorController {
         return new ResponseEntity<>(resultado,HttpStatus.OK);
     }
 
-    @GetMapping("/jugador/{id}/")
+    @GetMapping("/jugadores/{id}/")
     public ResponseEntity<Object> show(@PathVariable("id") Long id) {
 
         return new ResponseEntity<>(new JugadorDTO(jugadorRepository.findById(id).get()), HttpStatus.OK);
     }
 
-    @PostMapping("/jugador/create")
+    @PostMapping("/jugadores/create")
     public ResponseEntity<Object> create(@RequestBody JugadorDTO jugador) {
         return new ResponseEntity<>(
                 new JugadorDTO(jugadorRepository.save(new Jugador(jugador))), HttpStatus.OK
         );
     }
-    @DeleteMapping("/jugador/{id}/")
+    @DeleteMapping("/jugadores/{id}/")
     public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
         Optional<Jugador> jugador = jugadorRepository.findById(id);
         jugador.ifPresent(value -> jugadorRepository.delete(value));
         return new ResponseEntity<>(jugador.isPresent(), HttpStatus.OK);
     }
 
-    @PutMapping("/jugador/{id}/")
+    @PutMapping("/jugadores/{id}/")
     public ResponseEntity<Object> update(@PathVariable("id") Long id, @RequestBody Jugador jugador) {
         Optional<Jugador> oldJugador = jugadorRepository.findById(id);
         if(oldJugador.isPresent()) {
