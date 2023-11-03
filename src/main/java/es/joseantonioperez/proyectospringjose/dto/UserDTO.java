@@ -15,10 +15,12 @@ import java.util.*;
 public class UserDTO implements Serializable {
     private Long Id;
     private String username;
+    private String email;
 
     public UserDTO(User user){
         this.Id = user.getId();
         this.username = user.getUsername();
+        this.email = user.getEmail();
     }
 
 }

@@ -25,7 +25,11 @@ public class User {
     private String email;
     private String password;
 
+    @OneToMany
+    private List<Jugador> jugadoresFavoritos;
 
+    @OneToMany
+    private List<Equipo> equiposFavoritos;
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;

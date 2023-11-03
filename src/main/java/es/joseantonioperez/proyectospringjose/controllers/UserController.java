@@ -33,6 +33,28 @@ public class UserController {
         Optional<User> user = userRepository.findById(id);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+    //Obtener los usuarios pero en DTO
+    @GetMapping("/users/dto/")
+    public ResponseEntity<Object> getUsersDTO() {
+        List<UserDTO> response = new ArrayList<>();
+        for (User user : userRepository.findAll()) {
+            response.add(new UserDTO(user));
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/users/dto/{id}")
+    public ResponseEntity<UserDTO> getUserDTOById(@PathVariable Long id) {
+        Optional<User> user = userRepository.findById(id);
+
+        if (user.isPresent()) {
+            UserDTO userDTO = new UserDTO(user.get());
+            return ResponseEntity.ok(userDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 
     // Crear un nuevo usuario
