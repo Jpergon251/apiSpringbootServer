@@ -57,10 +57,6 @@ public class Jugador {
         this.posicion = jugador.getPosicion();
         this.edad = jugador.getEdad();
         this.nacionalidad = jugador.getNacionalidad();
-        this.campeonFavorito = jugador.getCampeonFavorito();
-        this.bajas = jugador.getBajas();
-        this.muertes = jugador.getMuertes();
-        this.asistencias = jugador.getAsistencias();
-        this.foto = jugador.getFoto();
+
     }
 }

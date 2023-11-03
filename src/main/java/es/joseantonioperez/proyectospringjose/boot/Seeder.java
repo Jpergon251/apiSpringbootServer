@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+import static es.joseantonioperez.proyectospringjose.models.User.UserRole.ADMIN;
+
 @Component
 public class Seeder implements CommandLineRunner {
     @Autowired
@@ -39,7 +41,7 @@ public class Seeder implements CommandLineRunner {
     public void run(String... args) {
 
         // Usuario para testear
-        User testUser = new User("Jose","jpergon251@g.educaand.es", "pestillo");
+        User testUser = new User("Jose","jpergon251@g.educaand.es", "pestillo", ADMIN);
         userRepository.save(testUser);
 
 

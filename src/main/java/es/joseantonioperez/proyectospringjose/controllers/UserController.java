@@ -22,6 +22,7 @@ public class UserController {
     private UserRepository userRepository;
 
     // Obtener la lista de todos los usuarios
+
     @GetMapping("/users/")
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -60,19 +61,29 @@ public class UserController {
     // Crear un nuevo usuario
     @PostMapping("/users/create")
     public ResponseEntity<?> createUser(@RequestBody User user) {
-        // Comprueba si ya existe un usuario con el mismo nombre de usuario o correo electrónico
-        User existingUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail());
+        // Comprobar si ya existe un usuario con el mismo nombre de usuario
+        User existingUserWithUsername = userRepository.findByUsername(user.getUsername());
 
-        if (existingUser != null) {
-            // Usuario con el mismo nombre de usuario o correo electrónico ya existe
-            return ResponseEntity.badRequest().body("Nombre de usuario o correo electrónico ya están en uso.");
-        } else {
-            // No existe un usuario con el mismo nombre de usuario o correo electrónico, crea el nuevo usuario
-            // Asegúrate de encriptar la contraseña aquí
-            user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-            User newUser = userRepository.save(user);
-            return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+        if (existingUserWithUsername != null) {
+            // Usuario con el mismo nombre de usuario ya existe
+            return ResponseEntity.badRequest().body("Nombre de usuario ya está en uso.");
         }
+
+        // Comprobar si ya existe un usuario con el mismo correo electrónico
+        User existingUserWithEmail = userRepository.findByEmail(user.getEmail());
+
+        if (existingUserWithEmail != null) {
+            // Usuario con el mismo correo electrónico ya está en uso
+            return ResponseEntity.badRequest().body("Correo electrónico ya está en uso.");
+        }
+
+        // No existe un usuario con el mismo nombre de usuario ni con el mismo correo electrónico, crear el nuevo usuario
+        // Asegurarse de encriptar la contraseña aquí
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        user.setRole(User.UserRole.USER); // Asignar el rol USER
+        User newUser = userRepository.save(user);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
     // Actualizar la información de un usuario
     @PutMapping("/users/{id}")

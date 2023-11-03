@@ -63,7 +63,9 @@ public class SecurityConfig {
 				.cors().configurationSource(corsConfigurationSource()).and()
 				.csrf(AbstractHttpConfigurer::disable)
 				.userDetailsService(myUserDetailsService)
-				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/users/create").permitAll())
+				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/users/create").permitAll()
+
+				)
 				.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
@@ -108,7 +110,7 @@ public class SecurityConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Cambia esto al origen correcto
-		configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "User-Agent"));
+		configuration.setAllowedHeaders(List.of("*"));
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 		configuration.setAllowCredentials(true);
 

@@ -24,15 +24,23 @@ public class User {
 
     private String email;
     private String password;
+    public enum UserRole {
+        ADMIN,
+        USER
+    }
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     @OneToMany
     private List<Jugador> jugadoresFavoritos;
 
     @OneToMany
     private List<Equipo> equiposFavoritos;
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, UserRole role) {
         this.username = username;
         this.email = email;
         this.password = new BCryptPasswordEncoder().encode(password);
+        this.role = role;
     }
 }

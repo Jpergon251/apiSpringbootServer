@@ -64,14 +64,7 @@ public class Equipo {
         this.coach = equipoDTO.getCoach();
         this.nickCoach = equipoDTO.getNickCoach();
         this.logo = equipoDTO.getLogo();
-        this.tiempoDeJuego = equipoDTO.getTiempoDeJuego();
-        this.victorias = equipoDTO.getVictorias();
-        this.derrotas = equipoDTO.getDerrotas();
-        this.oro = equipoDTO.getOro();
-        this.minions = equipoDTO.getMinions();
-        this.barones = equipoDTO.getBarones();
-        this.torres = equipoDTO.getTorres();
-        this.dragones = equipoDTO.getDragones();
+
         this.jugadores = new ArrayList<>();
         for (JugadorDTO jugadorDTO : equipoDTO.getJugadores()) {
             // Crea una instancia de Jugador a partir de JugadorDTO y luego agrega el jugador a la lista
