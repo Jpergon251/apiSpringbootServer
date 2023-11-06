@@ -24,7 +24,7 @@ public class UserController {
     // Obtener la lista de todos los usuarios
 
     @GetMapping("/users/")
-    public List<User> getAllUsers() {
+    public List<User> getUsers() {
         return userRepository.findAll();
     }
 

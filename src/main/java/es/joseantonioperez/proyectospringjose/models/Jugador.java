@@ -24,8 +24,9 @@ public class Jugador {
     private Integer bajas;
     private Integer muertes;
     private Integer asistencias;
+    private Double kda;
     private String foto;
-    @JsonIgnoreProperties({"jugadores"})
+
     @ManyToOne
     @JoinColumn() // Esta anotación especifica la columna en la tabla "Jugador" que almacena la clave foránea "team_id"
     @JsonBackReference
@@ -49,6 +50,13 @@ public class Jugador {
         this.asistencias = asistencias;
         this.foto = foto;
         this.equipo = equipo;
+        if (muertes != 0){
+            this.kda = (double)(bajas + asistencias)/ muertes;
+
+        }else {
+            this.kda = (double)(bajas + asistencias);
+        }
+
     }
 
     public Jugador(JugadorDTO jugador){

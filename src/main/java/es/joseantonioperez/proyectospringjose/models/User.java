@@ -26,7 +26,9 @@ public class User {
     private String password;
     public enum UserRole {
         ADMIN,
-        USER
+        USER,
+
+        TEST
     }
     @Column(name = "role")
     @Enumerated(EnumType.STRING)

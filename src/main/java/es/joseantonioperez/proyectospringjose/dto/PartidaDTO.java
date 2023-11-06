@@ -41,6 +41,7 @@ public class PartidaDTO implements Serializable {
         this.baronesLocal = partida.getBaronesLocal();
         this.torresLocal = partida.getTorresLocal();
         this.oroVisitante = partida.getOroVisitante();
+        this.dragonesLocal= partida.getDragonesLocal();
         this.minionsVisitante = partida.getMinionsVisitante();
         this.baronesVisitante = partida.getBaronesVisitante();
         this.torresVisitante = partida.getTorresVisitante();

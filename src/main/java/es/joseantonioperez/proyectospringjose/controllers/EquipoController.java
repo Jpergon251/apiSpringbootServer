@@ -26,21 +26,21 @@ public class EquipoController {
 
 
     @PostMapping("/equipos/create")
-    public ResponseEntity<Object> create() {
+    public ResponseEntity<Object> createEquipo() {
         return new ResponseEntity<>(
                 equipoRepository.save(new Equipo()), HttpStatus.OK
         );
     }
 
     @DeleteMapping("/equipos/{id}/")
-    public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Object> deleteEquipo(@PathVariable("id") Long id) {
         Optional<Equipo> equipo = equipoRepository.findById(id);
         equipo.ifPresent(value -> equipoRepository.delete(value));
         return new ResponseEntity<>(equipo.isPresent(), HttpStatus.OK);
     }
 
     @PutMapping("/equipos/{id}/")
-    public ResponseEntity<Object> update(@PathVariable("id") Long id, @RequestBody Equipo equipo) {
+    public ResponseEntity<Object> updateEquipo(@PathVariable("id") Long id, @RequestBody Equipo equipo) {
         Optional<Equipo> oldEquipo = equipoRepository.findById(id);
         if (oldEquipo.isPresent()) {
             equipo.setId(id);

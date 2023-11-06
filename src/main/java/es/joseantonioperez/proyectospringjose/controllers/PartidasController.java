@@ -25,7 +25,7 @@ public class  PartidasController {
     @Autowired
     private EquipoService equipoService;
     @GetMapping("/partidas/")
-    public ResponseEntity<Object> index() {
+    public ResponseEntity<Object> getPartidas() {
         List<PartidaDTO> resultado = new ArrayList<>();
                 for( Partida partida : partidaRepository.findAll() ) {
                     resultado.add(new PartidaDTO(partida));
@@ -34,12 +34,12 @@ public class  PartidasController {
     }
 
     @GetMapping("/partidas/{id}/")
-    public ResponseEntity<Object> show(@PathVariable("id") Long id) {
+    public ResponseEntity<Object> getPartidaById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(new PartidaDTO(partidaRepository.findById(id).get()), HttpStatus.OK);
     }
 
     @PostMapping("/partidas/create")
-    public ResponseEntity<Object> create(@RequestBody PartidaDTO partidaDTO) {
+    public ResponseEntity<Object> createPartida(@RequestBody PartidaDTO partidaDTO) {
 
         equipoService.actualizarDatosEquipo(new Equipo(partidaDTO.getEquipoLocal()));
         equipoService.actualizarDatosEquipo(new Equipo(partidaDTO.getEquipoVisitante()));

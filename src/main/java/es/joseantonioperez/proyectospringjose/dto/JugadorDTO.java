@@ -17,6 +17,13 @@ public class JugadorDTO  implements Serializable {
     private String posicion;
     private Integer edad;
     private String nacionalidad;
+    private String campeonFavorito;
+    private Integer bajas;
+    private Integer muertes;
+    private Integer asistencias;
+    private Double kda;
+    private String foto;
+    private String equipo;
 
 
     public JugadorDTO(Jugador jugador){
@@ -26,7 +33,13 @@ public class JugadorDTO  implements Serializable {
         this.posicion = jugador.getPosicion();
         this.edad = jugador.getEdad();
         this.nacionalidad = jugador.getNacionalidad();
-
+        this.campeonFavorito = jugador.getCampeonFavorito();
+        this.bajas = jugador.getBajas();
+        this.muertes = jugador.getMuertes();
+        this.asistencias = jugador.getAsistencias();
+        this.foto = jugador.getFoto();
+        this.kda = jugador.getKda();
+        this.equipo = jugador.getEquipo().getNombre();
     }
 
 }

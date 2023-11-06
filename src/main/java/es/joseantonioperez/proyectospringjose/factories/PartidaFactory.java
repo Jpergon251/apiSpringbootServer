@@ -22,24 +22,34 @@ public class PartidaFactory {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime thirtyDaysAgo = now.minusDays(60);
 
-
         return IntStream.range(0, number)
-                .mapToObj(x -> new Partida(
-                        generateRandomDateTime(thirtyDaysAgo, now),  // Fecha actual
-                        esFaker.number().numberBetween(1200, 4000), // Duración aleatoria entre 20 y 60 minutos
-                        esFaker.number().numberBetween(10000, 80000),  // Oro local aleatorio entre 5000 y 20000
-                        esFaker.number().numberBetween(100, 400),  // Minions local aleatorios entre 100 y 400
-                        esFaker.number().numberBetween(0, 2),  // Barones locales aleatorios entre 0 y 4
-                        esFaker.number().numberBetween(0, 11),  // Torres locales aleatorias entre 0 y 11
-                        esFaker.number().numberBetween(0, 5),  // Dragones locales aleatorios entre 0 y 5
-                        esFaker.number().numberBetween(5000, 100000),  // Oro visitante aleatorio entre 5000 y 20000
-                        esFaker.number().numberBetween(100, 400),  // Minions visitantes aleatorios entre 100 y 400
-                        esFaker.number().numberBetween(0, 2),  // Barones visitantes aleatorios entre 0 y 4
-                        esFaker.number().numberBetween(0, 11),  // Torres visitantes aleatorias entre 0 y 11
-                        esFaker.number().numberBetween(0, 5),  // Dragones visitantes aleatorios entre 0 y 5
-                        esFaker.options().nextElement(equipos),  // Equipo local (puedes personalizar esta parte)
-                        esFaker.options().nextElement(equipos)  // Equipo visitante (puedes personalizar esta parte)
-               ))
+                .mapToObj(x -> {
+                    Equipo equipoLocal;
+                    Equipo equipoVisitante;
+
+                    // Genera equipos locales y visitantes hasta que sean diferentes
+                    do {
+                        equipoLocal = esFaker.options().nextElement(equipos);
+                        equipoVisitante = esFaker.options().nextElement(equipos);
+                    } while (equipoLocal.equals(equipoVisitante));
+
+                    return new Partida(
+                            generateRandomDateTime(thirtyDaysAgo, now),
+                            esFaker.number().numberBetween(1200, 4000),
+                            esFaker.number().numberBetween(10000, 80000),
+                            esFaker.number().numberBetween(100, 400),
+                            esFaker.number().numberBetween(0, 2),
+                            esFaker.number().numberBetween(0, 11),
+                            esFaker.number().numberBetween(0, 5),
+                            esFaker.number().numberBetween(10000, 80000),
+                            esFaker.number().numberBetween(100, 400),
+                            esFaker.number().numberBetween(0, 2),
+                            esFaker.number().numberBetween(0, 11),
+                            esFaker.number().numberBetween(0, 5),
+                            equipoLocal,
+                            equipoVisitante
+                    );
+                })
                 .collect(Collectors.toList());
     }
 
