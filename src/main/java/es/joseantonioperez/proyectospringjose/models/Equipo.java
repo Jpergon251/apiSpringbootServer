@@ -22,8 +22,11 @@ public class Equipo {
 
 
     private String nombre;
+    @Column(length = 500)
+    private String descripcion;
     private String nickCoach;
     private String coach;
+    private String coachFoto;
     private String logo;
 
     private Integer tiempoDeJuego;
@@ -49,20 +52,27 @@ public class Equipo {
     }
     public Equipo(
             String nombre,
+            String descripcion,
             String coach,
-            String nickCoach
+            String nickCoach,
+            String coachFoto,
+            String logo
             ) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.coach = coach;
         this.nickCoach = nickCoach;
-
+        this.coachFoto = coachFoto;
+        this.logo = logo;
 
     }
 
     public Equipo(EquipoDTO equipoDTO){
         this.nombre = equipoDTO.getNombre();
+        this.descripcion = equipoDTO.getDescripcion();
         this.coach = equipoDTO.getCoach();
         this.nickCoach = equipoDTO.getNickCoach();
+        this.coachFoto = equipoDTO.getCoachFoto();
         this.logo = equipoDTO.getLogo();
 
         this.jugadores = new ArrayList<>();

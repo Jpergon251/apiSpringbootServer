@@ -20,7 +20,9 @@ public class EquipoDTO implements Serializable {
     private Long id;
 
     private String nombre;
+    private String descripcion;
     private String nickCoach;
+    private String coachFoto;
     private String coach;
     private String logo;
 
@@ -31,7 +33,9 @@ public class EquipoDTO implements Serializable {
     ) {
         this.id = equipo.getId();
         this.nombre = equipo.getNombre();
+        this.descripcion = equipo.getDescripcion();
         this.nickCoach = equipo.getNickCoach();
+        this.coachFoto = equipo.getCoachFoto();
         this.coach = equipo.getCoach();
         this.logo = equipo.getLogo();
 

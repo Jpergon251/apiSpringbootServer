@@ -53,87 +53,123 @@ public class Seeder implements CommandLineRunner {
         // Aqui creamos los equipos
         Equipo movistarRiders = new Equipo(
                 "Movistar Riders",
+                "Movistar Riders es uno de los principales clubes de eSports en España compitiendo en los juegos más populares como League of Legends o CSGO. Sus jugadores representan la marca Movistar Riders en múltiples torneos a nivel nacional e internacional. El Club tiene su sede en el Movistar eSports Center, en Matadero Madrid, un centro de alto rendimiento donde los jugadores y cuerpo técnico cuentan con los medios más avanzados para desarrollar su actividad al máximo nivel.",
                 "Tomás Campelos",
-                "Melzhet"
+                "Melzhet",
+                "https://i.ibb.co/QMxV3yt/coach-Movistar-Riders.png",
+                "https://i.ibb.co/D7Fb3Ds/643feec0905f4284372742-x2.png"
         );
         equipos.add(movistarRiders);
 
         Equipo bisons = new Equipo(
                 "Bisons Eclub",
+                "BISONS ECLUB nace en 2021 para competir en la Superliga como el único club del eje atlántico en el ecosistema profesional de los esports. El objetivo de desarrollo de BISONS ECLUB gira en torno a cuatro pilares: Esports, Entretenimiento, Eventos y Educación, generando así una alternativa de ocio de calidad. Con sede en Bilbao, el club aspira a convertirse en una entidad referente en el territorio nacional.",
                 "Victor Machuca Segura",
-                "Machuki"
+                "Machuki",
+                "https://i.ibb.co/vhhybnY/coach-Bisons.png",
+                "https://i.ibb.co/2ZKz2GT/618bec7d0f880127657830-x2.png"
         );
         equipos.add(bisons);
 
         Equipo losHeretics = new Equipo(
                 "Los Heretics",
+                "Team Heretics fue creado en 2016, tiene sede en Madrid y es el club de deportes electrónicos hispano más seguido a nivel mundial. Campeones del mundo en FIFA, campeones de Europa en Valorant, 2 asistencias al Mundial de Call of Duty y más de 15 títulos nacionales en Valorant, Call of Duty, Rainbow 6 y Counter Strike están entre sus principales hitos deportivos.",
                 "Fayan Pertijs",
-                "Gevous"
+                "Gevous",
+                "https://i.ibb.co/0chg04n/coach-Heretics.png",
+                "https://i.ibb.co/G9cwyb1/62e389382e842553067462-x2.png"
         );
         equipos.add(losHeretics);
 
         Equipo barcaEsports = new Equipo(
                 "Barça eSports",
+                "Barça eSports se une a la Superliga de League of Legends 2022. El club de esports recién llegado a la liga oficial de LoL, busca construir una sección líder que contribuya a conectar el club y su filosofía con nuevas audiencias.",
                 "Alejandro Parejo",
-                "Mapache"
+                "Mapache",
+                "https://i.ibb.co/x223NJr/coach-Bar-a.png",
+                "https://i.ibb.co/B4P0j0s/61b77824711cb276474054-x2.png"
         );
         equipos.add(barcaEsports);
 
 
         Equipo giants = new Equipo(
                 "Giants",
+                "Giants es el club más laureado del panorama español. También es uno de los más veteranos, y ha formado parte de las competiciones de Liga de Videojuegos Profesional desde prácticamente sus inicios. Cinco Final Cups en Call of Duty y siete títulos de League of Legends son, entre muchos otros, los éxitos que ha cosechado el club malagueño a lo largo de su historia.",
                 "André Guilhoto",
-                "Guilhoto"
+                "Guilhoto",
+                "https://i.ibb.co/mR2Bjqc/coach-Giants.png",
+                "https://i.ibb.co/NLFK8BH/61d856234f902476229236-x2.png"
 
         );
         equipos.add(giants);
 
         Equipo finetworkKOI = new Equipo(
                 "Finetwork KOI",
+                "Finetwork KOI es el equipo de esports lanzado por Gerard Piqué e Ibai Llanos para luchar por el título de campeón de la Superliga de League of Legends. La escuadra de KOI tiene como objetivo conseguir el título de la máxima competición de LoL en España y crear un club referente en esports a nivel de competición y de contenidos.",
                 "Gonçalo Brandão",
-                "Crusher"
+                "Crusher",
+                "https://i.ibb.co/VDXFTp9/coachKOI.png",
+                "https://i.ibb.co/X8khQYP/61b740d6c6264734104767-x2.png"
         );
         equipos.add(finetworkKOI);
 
         Equipo ucamTokiers = new Equipo(
                 "UCAM Tokiers",
+                "UCAM nace de la incorporación del histórico Penguins dentro de la estructura deportiva de la institución universitaria. En una constante apuesta por la formación y la creación de nuevos talentos, se ha desarrollado un proyecto que aspira a todo en la escena competitiva de los esports en España.",
                 "Nuno Moutinho",
-                "Slayer"
+                "Slayer",
+                "no foto",
+                "https://i.ibb.co/NWmhM9m/60a3ae14518b7754845438-x2.png"
         );
         equipos.add(ucamTokiers);
 
         Equipo rebelsGaming = new Equipo(
                 "Rebels Gaming",
+                "Rebels Gaming desarrolla el talento y la creatividad tanto dentro como fuera del server. Tras un gran split de primavera en el que el equipo de David de Gea se proclamó campeón de la fase regular, el club busca aspirar a lo más alto. #BeRebels",
                 "Iván Villanueva",
-                "Prod1"
+                "Prod1",
+                "https://i.ibb.co/4VkLJF9/coach-Rebels.png",
+                "https://i.ibb.co/j41ZnpR/61b86da49e060502768260-x2.png"
         );
         equipos.add(rebelsGaming);
 
         Equipo fnaticTQ = new Equipo(
                 "Fnatic TQ",
+                "Fnatic TQ nace de la unión de Fnatic y Team Queso. Juntos, crean esta nueva marca con el objetivo de pelear por la Superliga y establecerse como uno de los equipos más importantes del panorama nacional. Fnatic TQ se consolida así como la principal cantera de Fnatic, que ha encontrado en Team Queso el mejor socio para ofrecer el ambiente perfecto a cualquier jugador que aspire a llegar a la LEC.",
                 "Pablo Vegas",
-                "Gaax"
+                "Gaax",
+                "https://i.ibb.co/pJjCsjZ/coach-Fnatic.png",
+                "https://i.ibb.co/p4rtXSN/61ccb9d0a8dcc859042358-x2.png"
         );
         equipos.add(fnaticTQ);
 
         Equipo guasones = new Equipo(
                 "Guasones",
+                "Guasones nace con el objetivo de crear un ambiente seguro para que los jóvenes navarros y navarras aficionados a los esports disfruten, aprendan y se desarrollen. El espíritu competitivo, las ganas de diversión y unas fuertes raíces en su tierra son los tres pilares sobre los que se erige Guasones, un club que aspira a situarse entre los más grandes.",
                 "Mario Martínez",
-                "Motroco"
+                "Motroco",
+                "https://i.ibb.co/QFVkXyj/coach-Guasones.png",
+                "https://i.ibb.co/hL3PFvT/63c1392f7d9d9030610782-x2.png"
         );
         equipos.add(guasones);
 
         Equipo caseEsports = new Equipo(
                 "Case Esports",
+                "",
                 "Alvaro Hernández",
-                "Xaio"
+                "Xaio",
+                "no foto",
+                "https://i.ibb.co/9rYDRCH/618bece467a49315670494-x2.png"
         );
         equipos.add(caseEsports);
 
         Equipo wizards = new Equipo(
                 "Wizards",
+                "Fundado en 2002, Wizards es el club de esports en activo más antiguo de España, laureado tanto nacional como internacionalmente, destaca por ser un gran descubridor y formador de talento. A lo largo de su historia, ha competido en más de 30 juegos diferentes, logrando más de 70 títulos y siendo la casa de más de 300 jugadores del máximo nivel.",
                 "Ioannis Kounelis",
-                "Anonpsycko"
+                "Anonpsycko",
+                "no foto",
+                "https://i.ibb.co/KDj77Sr/6475def837b3f288265495-x2.png"
         );
         equipos.add(wizards);
 
