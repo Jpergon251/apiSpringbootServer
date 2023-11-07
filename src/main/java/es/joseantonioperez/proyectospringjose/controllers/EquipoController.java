@@ -1,5 +1,6 @@
 package es.joseantonioperez.proyectospringjose.controllers;
 
+import es.joseantonioperez.proyectospringjose.dto.EquipoDTO;
 import es.joseantonioperez.proyectospringjose.models.Equipo;
 import es.joseantonioperez.proyectospringjose.repositories.EquipoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 @RestController
 public class EquipoController {
@@ -20,11 +23,31 @@ public class EquipoController {
     }
 
     @GetMapping("/equipos/{id}/")
-    public ResponseEntity<Object> getEquiposById(@PathVariable Long id){
+    public ResponseEntity<Object> getEquipoById(@PathVariable Long id){
         return new ResponseEntity<>(equipoRepository.findById(id), HttpStatus.OK);
     }
 
 
+    @GetMapping("/equipos/dto/")
+    public ResponseEntity<Object> getEquiposDTO(){
+        List<EquipoDTO> response = new ArrayList<>();
+        for (Equipo equipo : equipoRepository.findAll()){
+            response.add(new EquipoDTO(equipo));
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/equipos/dto/{id}")
+    public ResponseEntity<Object> getEquipoDTOById(@PathVariable Long id) {
+        Optional<Equipo> optionalEquipo = equipoRepository.findById(id);
+
+        if (optionalEquipo.isPresent()) {
+            Equipo equipo = optionalEquipo.get();
+            return new ResponseEntity<>(new EquipoDTO(equipo), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("El equipo no se encontró", HttpStatus.NOT_FOUND);
+        }
+    }
     @PostMapping("/equipos/create")
     public ResponseEntity<Object> createEquipo() {
         return new ResponseEntity<>(

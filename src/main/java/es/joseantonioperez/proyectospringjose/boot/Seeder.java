@@ -131,7 +131,7 @@ public class Seeder implements CommandLineRunner {
         equipos.add(caseEsports);
 
         Equipo wizards = new Equipo(
-                "wizards",
+                "Wizards",
                 "Ioannis Kounelis",
                 "Anonpsycko"
         );

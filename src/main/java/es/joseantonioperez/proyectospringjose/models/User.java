@@ -28,7 +28,6 @@ public class User {
         ADMIN,
         USER,
 
-        TEST
     }
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
