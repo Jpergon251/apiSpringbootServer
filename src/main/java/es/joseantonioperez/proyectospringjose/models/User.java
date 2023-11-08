@@ -28,6 +28,7 @@ public class User {
         ADMIN,
         USER,
 
+        BANNED
     }
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
