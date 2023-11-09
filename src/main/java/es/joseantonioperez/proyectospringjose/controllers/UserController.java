@@ -90,9 +90,17 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
         return userRepository.findById(id)
                 .map(user -> {
-                    user.setUsername(updatedUser.getUsername());
-                    user.setEmail(updatedUser.getEmail());
-                    user.setPassword(updatedUser.getPassword());
+                    if (updatedUser.getUsername() != null) {
+                        user.setUsername(updatedUser.getUsername());
+                    }
+                    if (updatedUser.getEmail() != null) {
+                        user.setEmail(updatedUser.getEmail());
+                    }
+                    if (updatedUser.getPassword() != null) {
+                        user.setPassword(new BCryptPasswordEncoder().encode(updatedUser.getPassword()));
+                    }
+
+
                     userRepository.save(user);
                     return ResponseEntity.ok(user);
                 })

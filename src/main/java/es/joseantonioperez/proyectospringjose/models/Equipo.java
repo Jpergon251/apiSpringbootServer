@@ -40,7 +40,6 @@ public class Equipo {
 
 
 
-
     @OneToMany(mappedBy = "equipo")
     @JsonManagedReference
     private List<Jugador> jugadores;

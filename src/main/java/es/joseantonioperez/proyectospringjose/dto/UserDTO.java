@@ -19,7 +19,6 @@ public class UserDTO implements Serializable {
     private String username;
     private String email;
     private List<Jugador> jugadoresFavoritos;
-    private List<Equipo> equiposFavoritos;
     private User.UserRole role;
 
     public UserDTO(User user){
@@ -27,7 +26,6 @@ public class UserDTO implements Serializable {
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.jugadoresFavoritos = user.getJugadoresFavoritos();
-        this.equiposFavoritos = user.getEquiposFavoritos();
         this.role = user.getRole();
     }
 

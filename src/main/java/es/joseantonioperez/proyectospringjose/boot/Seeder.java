@@ -604,7 +604,7 @@ public class Seeder implements CommandLineRunner {
                 "Andrei Dragomir",
                 "JUNGLER",
                 23, // Edad desconocida
-                "RO",
+                "ROgit",
                 "Maokai", // Campeón favorito desconocido
                 69, // Bajas
                 46, // Muertes

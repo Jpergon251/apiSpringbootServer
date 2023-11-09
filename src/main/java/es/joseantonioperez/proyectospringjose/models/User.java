@@ -27,7 +27,6 @@ public class User {
     public enum UserRole {
         ADMIN,
         USER,
-
         BANNED
     }
     @Column(name = "role")
@@ -37,8 +36,7 @@ public class User {
     @OneToMany
     private List<Jugador> jugadoresFavoritos;
 
-    @OneToMany
-    private List<Equipo> equiposFavoritos;
+
     public User(String username, String email, String password, UserRole role) {
         this.username = username;
         this.email = email;
