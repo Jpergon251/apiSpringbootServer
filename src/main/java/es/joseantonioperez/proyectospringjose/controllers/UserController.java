@@ -88,19 +88,21 @@ public class UserController {
     // Actualizar la información de un usuario
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+
         return userRepository.findById(id)
                 .map(user -> {
-                    if (updatedUser.getUsername() != null) {
+                    if (updatedUser.getUsername() != null && !updatedUser.getUsername().isEmpty()) {
                         user.setUsername(updatedUser.getUsername());
                     }
-                    if (updatedUser.getEmail() != null) {
+                    if (updatedUser.getEmail() != null && !updatedUser.getEmail().isEmpty()) {
                         user.setEmail(updatedUser.getEmail());
                     }
-                    if (updatedUser.getPassword() != null) {
+                    if (updatedUser.getPassword() != null && !updatedUser.getPassword().isEmpty()) {
                         user.setPassword(new BCryptPasswordEncoder().encode(updatedUser.getPassword()));
                     }
-
-
+                    if (updatedUser.getRole() != null) {
+                        user.setRole(updatedUser.getRole());
+                    }
                     userRepository.save(user);
                     return ResponseEntity.ok(user);
                 })

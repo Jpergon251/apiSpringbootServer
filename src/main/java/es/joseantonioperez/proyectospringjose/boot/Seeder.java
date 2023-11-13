@@ -192,7 +192,7 @@ public class Seeder implements CommandLineRunner {
                 74,
                 76,
                 180,
-                "Best player weapon image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/RDgYB6Z/marky.png", // Asumiendo que es la URL de la imagen
                 movistarRiders // Equipo de Marky
         );
         jugadores.add(marky);
@@ -207,7 +207,7 @@ public class Seeder implements CommandLineRunner {
                 79,
                 81,
                 250,
-                "Best player weapon image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/W0p79pV/isma.png", // Asumiendo que es la URL de la imagen
                 movistarRiders // Equipo de Isma
         );
         jugadores.add(isma);
@@ -222,7 +222,7 @@ public class Seeder implements CommandLineRunner {
                 115,
                 82,
                 156,
-                "Best player weapon image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/Z6M67r8/fresskowy.png", // Asumiendo que es la URL de la imagen
                 movistarRiders // Equipo de FRESSKOWY
         );
         jugadores.add(fresskowy);
@@ -237,7 +237,7 @@ public class Seeder implements CommandLineRunner {
                 166,
                 87,
                 168,
-                "Foto",
+                "https://i.ibb.co/kHGG3mK/supa.png",
                 movistarRiders
         );
         jugadores.add(supa);
@@ -252,7 +252,7 @@ public class Seeder implements CommandLineRunner {
                 32,
                 114,
                 342,
-                "Foto",
+                "https://i.ibb.co/5KyyGxD/alvaro.png",
                 movistarRiders
 
         );
@@ -268,7 +268,7 @@ public class Seeder implements CommandLineRunner {
                 0,
                 0,
                 0,
-                "Foto",
+                "https://i.ibb.co/3pkG1qT/hydra.png",
                 movistarRiders
 
         );

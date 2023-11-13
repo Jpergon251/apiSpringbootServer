@@ -22,6 +22,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false, unique = true)
     private String email;
     private String password;
     public enum UserRole {

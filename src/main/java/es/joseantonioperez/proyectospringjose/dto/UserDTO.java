@@ -1,6 +1,5 @@
 package es.joseantonioperez.proyectospringjose.dto;
 
-import es.joseantonioperez.proyectospringjose.models.Equipo;
 import es.joseantonioperez.proyectospringjose.models.Jugador;
 import es.joseantonioperez.proyectospringjose.models.User;
 import lombok.AllArgsConstructor;
@@ -9,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
