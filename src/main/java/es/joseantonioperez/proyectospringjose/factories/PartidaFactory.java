@@ -20,7 +20,7 @@ public class PartidaFactory {
 
     public List<Partida> get(int number, List<Equipo> equipos) {
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime thirtyDaysAgo = now.minusDays(60);
+        LocalDateTime thirtyDaysAgo = now.minusDays(365*3);
 
         return IntStream.range(0, number)
                 .mapToObj(x -> {

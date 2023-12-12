@@ -1430,7 +1430,7 @@ public class Seeder implements CommandLineRunner {
 
         // Creamos las partidas
 
-        List<Partida> partidas = partidaFactory.get(50, equipos);
+        List<Partida> partidas = partidaFactory.get(180*3, equipos);
 
         //Guardamos los datos en los repositorios
 
