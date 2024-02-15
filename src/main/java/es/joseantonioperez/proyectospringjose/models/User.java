@@ -34,7 +34,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Jugador> jugadoresFavoritos;
 
 

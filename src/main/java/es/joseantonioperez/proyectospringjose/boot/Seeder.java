@@ -118,7 +118,7 @@ public class Seeder implements CommandLineRunner {
                 "UCAM nace de la incorporación del histórico Penguins dentro de la estructura deportiva de la institución universitaria. En una constante apuesta por la formación y la creación de nuevos talentos, se ha desarrollado un proyecto que aspira a todo en la escena competitiva de los esports en España.",
                 "Nuno Moutinho",
                 "Slayer",
-                "no foto",
+                "https://i.ibb.co/8sxT2Rd/No-Player-Ucam.png",
                 "https://i.ibb.co/NWmhM9m/60a3ae14518b7754845438-x2.png"
         );
         equipos.add(ucamTokiers);
@@ -158,7 +158,7 @@ public class Seeder implements CommandLineRunner {
                 "",
                 "Alvaro Hernández",
                 "Xaio",
-                "no foto",
+                "https://i.ibb.co/chsK6wn/No-Player-Case.png",
                 "https://i.ibb.co/9rYDRCH/618bece467a49315670494-x2.png"
         );
         equipos.add(caseEsports);
@@ -168,7 +168,7 @@ public class Seeder implements CommandLineRunner {
                 "Fundado en 2002, Wizards es el club de esports en activo más antiguo de España, laureado tanto nacional como internacionalmente, destaca por ser un gran descubridor y formador de talento. A lo largo de su historia, ha competido en más de 30 juegos diferentes, logrando más de 70 títulos y siendo la casa de más de 300 jugadores del máximo nivel.",
                 "Ioannis Kounelis",
                 "Anonpsycko",
-                "no foto",
+                "https://i.ibb.co/Wp180YZ/No-Player-Wizards.png",
                 "https://i.ibb.co/KDj77Sr/6475def837b3f288265495-x2.png"
         );
         equipos.add(wizards);
@@ -233,7 +233,7 @@ public class Seeder implements CommandLineRunner {
                 "ADC",
                 23,
                 "ES",
-                "Kai'sa",
+                "Kai'Sa",
                 166,
                 87,
                 168,
@@ -290,7 +290,7 @@ public class Seeder implements CommandLineRunner {
                 95, // Bajas
                 79, // Muertes
                 160, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/9WxXBQr/No-PLayer-Bison.png", // Asumiendo que es la URL de la imagen
                 bisons // Equipo: Bisons
         );
 
@@ -306,7 +306,7 @@ public class Seeder implements CommandLineRunner {
                 57, // Bajas
                 63, // Muertes
                 240, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/n7LKrg5/NoName.png", // Asumiendo que es la URL de la imagen
                 bisons // Equipo: Bisons
         );
         jugadores.add(noname);
@@ -317,11 +317,11 @@ public class Seeder implements CommandLineRunner {
                 "MID",
                 21, // Edad desconocida
                 "CZ",
-                "Leeblanc", // Campeón favorito desconocido
+                "Leblanc", // Campeón favorito desconocido
                 112, // Bajas
                 80, // Muertes
                 158, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/bdC6cNt/Random.png", // Asumiendo que es la URL de la imagen
                 bisons // Equipo: Bisons
         );
         jugadores.add(random);
@@ -336,7 +336,7 @@ public class Seeder implements CommandLineRunner {
                 151, // Bajas
                 75, // Muertes
                 147, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/3Rk76rc/Legolas.png", // Asumiendo que es la URL de la imagen
                 bisons // Equipo: Bisons
         );
         jugadores.add(legolas);
@@ -351,7 +351,7 @@ public class Seeder implements CommandLineRunner {
                 15, // Bajas
                 100, // Muertes
                 322, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/Wk4S06G/Oscure.png", // Asumiendo que es la URL de la imagen
                 bisons // Equipo: Bisons
         );
         jugadores.add(oscure);
@@ -366,7 +366,7 @@ public class Seeder implements CommandLineRunner {
                 10, // Bajas
                 11, // Muertes
                 9, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/9WxXBQr/No-PLayer-Bison.png", // Asumiendo que es la URL de la imagen
                 bisons // Equipo: Bisons
         );
         jugadores.add(rubenxico);
@@ -387,7 +387,7 @@ public class Seeder implements CommandLineRunner {
                 46, // Bajas
                 66, // Muertes
                 130, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/CHCghyQ/Ibo.png", // Asumiendo que es la URL de la imagen
                 losHeretics // Equipo: Los Heretics
         );
         jugadores.add(ibo);
@@ -402,7 +402,7 @@ public class Seeder implements CommandLineRunner {
                 44, // Bajas
                 65, // Muertes
                 170, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/jMFBHWc/Bluerzor.png", // Asumiendo que es la URL de la imagen
                 losHeretics // Equipo: Los Heretics
         );
         jugadores.add(bluerzor);
@@ -417,7 +417,7 @@ public class Seeder implements CommandLineRunner {
                 79, // Bajas
                 71, // Muertes
                 116, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/LRr8Cjj/Zwyroo.png", // Asumiendo que es la URL de la imagen
                 losHeretics // Equipo: Los Heretics
         );
         jugadores.add(zwyroo);
@@ -432,7 +432,7 @@ public class Seeder implements CommandLineRunner {
                 130, // Bajas
                 55, // Muertes
                 112, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/sQzrVnW/Jackspektra.png", // Asumiendo que es la URL de la imagen
                 losHeretics // Equipo: Los Heretics
         );
         jugadores.add(jackspektra);
@@ -447,7 +447,7 @@ public class Seeder implements CommandLineRunner {
                 10, // Bajas
                 76, // Muertes
                 220, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/1QPsVpS/Marlon.png", // Asumiendo que es la URL de la imagen
                 losHeretics // Equipo: Los Heretics
         );
         jugadores.add(marlon);
@@ -462,7 +462,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/9WxXBQr/No-PLayer-Bison.png", // Asumiendo que es la URL de la imagen
                 losHeretics // Equipo: Los Heretics
         );
         jugadores.add(naruterador);
@@ -485,7 +485,7 @@ public class Seeder implements CommandLineRunner {
                 50, // Bajas
                 41, // Muertes
                 124, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/r39N2X1/Whiteknight.png", // Asumiendo que es la URL de la imagen
                 barcaEsports // Equipo: Barca Esports
         );
         jugadores.add(whiteknight);
@@ -500,7 +500,7 @@ public class Seeder implements CommandLineRunner {
                 42, // Bajas
                 58, // Muertes
                 134, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/4t7WxKb/Maxlore.png", // Asumiendo que es la URL de la imagen
                 barcaEsports // Equipo: Barca Esports
         );
         jugadores.add(maxlore);
@@ -515,7 +515,7 @@ public class Seeder implements CommandLineRunner {
                 88, // Bajas
                 54, // Muertes
                 111, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/vPBwk0F/Sajator.png", // Asumiendo que es la URL de la imagen
                 barcaEsports // Equipo: Barca Esports
         );
         jugadores.add(sajator);
@@ -530,7 +530,7 @@ public class Seeder implements CommandLineRunner {
                 81, // Bajas
                 46, // Muertes
                 116, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/HC7wyDT/Deadly.png", // Asumiendo que es la URL de la imagen
                 barcaEsports // Equipo: Barca Esports
         );
         jugadores.add(deadly);
@@ -545,7 +545,7 @@ public class Seeder implements CommandLineRunner {
                 15, // Bajas
                 53, // Muertes
                 198, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/xM257tD/Efias.png", // Asumiendo que es la URL de la imagen
                 barcaEsports // Equipo: Barca Esports
         );
         jugadores.add(efias);
@@ -560,7 +560,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/8DZX1vP/Naau.png", // Asumiendo que es la URL de la imagen
                 barcaEsports // Equipo: Barca Esports
         );
         jugadores.add(naau);
@@ -575,7 +575,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/r0JsxpD/Xixauxas.png", // Asumiendo que es la URL de la imagen
                 barcaEsports // Equipo: Barca Esports
         );
         jugadores.add(xixauxas);
@@ -594,7 +594,7 @@ public class Seeder implements CommandLineRunner {
                 48, // Bajas
                 58, // Muertes
                 167, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/S3yRVYS/Th3-Antonio.png", // Asumiendo que es la URL de la imagen
                 giants // Equipo: Giants
         );
         jugadores.add(th3antonio);
@@ -609,7 +609,7 @@ public class Seeder implements CommandLineRunner {
                 69, // Bajas
                 46, // Muertes
                 215, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/X8MxkwX/Xerxe.png", // Asumiendo que es la URL de la imagen
                 giants // Equipo: Giants
         );
         jugadores.add(xerxe);
@@ -624,7 +624,7 @@ public class Seeder implements CommandLineRunner {
                 107, // Bajas
                 46, // Muertes
                 146, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/WvNKYyB/Decay.png", // Asumiendo que es la URL de la imagen
                 giants // Equipo: Giants
         );
         jugadores.add(decay);
@@ -639,7 +639,7 @@ public class Seeder implements CommandLineRunner {
                 116, // Bajas
                 52, // Muertes
                 138, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/hXHMzrf/Attila.png", // Asumiendo que es la URL de la imagen
                 giants // Equipo: Giants
         );
         jugadores.add(attila);
@@ -654,7 +654,7 @@ public class Seeder implements CommandLineRunner {
                 17, // Bajas
                 65, // Muertes
                 258, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/n6RngNN/Whiteinn.png", // Asumiendo que es la URL de la imagen
                 giants // Equipo: Giants
         );
         jugadores.add(whiteinn);
@@ -669,7 +669,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/PGVzryz/Vander.png", // Asumiendo que es la URL de la imagen
                 giants // Equipo: Giants
         );
         jugadores.add(vander);
@@ -688,7 +688,7 @@ public class Seeder implements CommandLineRunner {
                 63, // Bajas
                 59, // Muertes
                 156, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/TqHqZdc/Sinmivak.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(sinmivak);
@@ -703,7 +703,7 @@ public class Seeder implements CommandLineRunner {
                 51, // Bajas
                 70, // Muertes
                 259, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/yhdRfWC/Koldo.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(koldo);
@@ -718,7 +718,7 @@ public class Seeder implements CommandLineRunner {
                 126, // Bajas
                 69, // Muertes
                 178, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/T4Y4g19/Baca.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(baca);
@@ -733,7 +733,7 @@ public class Seeder implements CommandLineRunner {
                 156, // Bajas
                 85, // Muertes
                 169, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/JvMSFCy/Jopa.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(jopa);
@@ -748,7 +748,7 @@ public class Seeder implements CommandLineRunner {
                 28, // Bajas
                 82, // Muertes
                 306, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/JvMSFCy/Jopa.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(stend);
@@ -763,7 +763,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/RDj9KG7/Aziado.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(aziado);
@@ -778,7 +778,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/bWhJ5RQ/Lucker.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(lucker);
@@ -793,7 +793,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/grBDxpF/Seaz.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(seaz);
@@ -808,7 +808,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/4gHJ9KP/No-PLayer-Koi.png", // Asumiendo que es la URL de la imagen
                 finetworkKOI // Equipo: FinetworkKOI
         );
         jugadores.add(blueknight);
@@ -828,7 +828,7 @@ public class Seeder implements CommandLineRunner {
                 59, // Bajas
                 97, // Muertes
                 175, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/5x72D6v/Papiteero.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(papiteero);
@@ -843,7 +843,7 @@ public class Seeder implements CommandLineRunner {
                 39, // Bajas
                 69, // Muertes
                 208, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/p3gkWjM/Xeonerr.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(xeonerr);
@@ -858,7 +858,7 @@ public class Seeder implements CommandLineRunner {
                 139, // Bajas
                 92, // Muertes
                 201, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/QP3bd3D/Hatrixx.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(hatrixx);
@@ -873,7 +873,7 @@ public class Seeder implements CommandLineRunner {
                 150, // Bajas
                 71, // Muertes
                 168, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/bXws762/Rafitta.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(rafitta);
@@ -888,7 +888,7 @@ public class Seeder implements CommandLineRunner {
                 17, // Bajas
                 104, // Muertes
                 322, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/1qmDMDB/Infoneral.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(infoneral);
@@ -903,7 +903,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/8sxT2Rd/No-Player-Ucam.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(fintinhas);
@@ -918,7 +918,7 @@ public class Seeder implements CommandLineRunner {
                 34, // Bajas
                 27, // Muertes
                 60, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/L1dXRbR/Mart.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(mart);
@@ -933,7 +933,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/8DZX1vP/Naau.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(gromix);
@@ -948,7 +948,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/vQ8DDtt/Aiden.png", // Asumiendo que es la URL de la imagen
                 ucamTokiers // Equipo: Ucam Tokiers
         );
         jugadores.add(aiden);
@@ -968,7 +968,7 @@ public class Seeder implements CommandLineRunner {
                 37, // Bajas
                 38, // Muertes
                 88, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/QnntgfT/R4ven.png", // Asumiendo que es la URL de la imagen
                 rebelsGaming // Equipo: Rebels Gaming
         );
         jugadores.add(r4ven);
@@ -983,7 +983,7 @@ public class Seeder implements CommandLineRunner {
                 38, // Bajas
                 62, // Muertes
                 159, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/8m1Gt4Q/Ahahacik.png", // Asumiendo que es la URL de la imagen
                 rebelsGaming // Equipo: Rebels Gaming
         );
         jugadores.add(ahahacik);
@@ -998,7 +998,7 @@ public class Seeder implements CommandLineRunner {
                 38, // Bajas
                 29, // Muertes
                 46, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/Q6Sk9Fm/Dajor.png", // Asumiendo que es la URL de la imagen
                 rebelsGaming // Equipo: Rebels Gaming
         );
         jugadores.add(dajor);
@@ -1013,7 +1013,7 @@ public class Seeder implements CommandLineRunner {
                 84, // Bajas
                 43, // Muertes
                 87, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/QY5VXNH/Bean.png", // Asumiendo que es la URL de la imagen
                 rebelsGaming // Equipo: Rebels Gaming
         );
         jugadores.add(bean);
@@ -1028,7 +1028,7 @@ public class Seeder implements CommandLineRunner {
                 8, // Bajas
                 46, // Muertes
                 186, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/ydtcPD3/Obstinatus.png", // Asumiendo que es la URL de la imagen
                 rebelsGaming // Equipo: Rebels Gaming
         );
         jugadores.add(obstinatus);
@@ -1043,7 +1043,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/Z1tyNWB/Whyx.png", // Asumiendo que es la URL de la imagen
                 rebelsGaming // Equipo: Rebels Gaming
         );
         jugadores.add(whyx);
@@ -1064,7 +1064,7 @@ public class Seeder implements CommandLineRunner {
                 28, // Bajas
                 47, // Muertes
                 85, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/jgZYcpW/Doxy.png", // Asumiendo que es la URL de la imagen
                 fnaticTQ // Equipo: FnaticTQ
         );
         jugadores.add(doxy);
@@ -1079,7 +1079,7 @@ public class Seeder implements CommandLineRunner {
                 56, // Bajas
                 78, // Muertes
                 126, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/wRrDzNd/Rabble.png", // Asumiendo que es la URL de la imagen
                 fnaticTQ // Equipo: FnaticTQ
         );
         jugadores.add(rabble);
@@ -1094,7 +1094,7 @@ public class Seeder implements CommandLineRunner {
                 56, // Bajas
                 47, // Muertes
                 84, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/zS3pvhW/Nafkhela.png", // Asumiendo que es la URL de la imagen
                 fnaticTQ // Equipo: FnaticTQ
         );
         jugadores.add(nafkelah);
@@ -1109,7 +1109,7 @@ public class Seeder implements CommandLineRunner {
                 16, // Bajas
                 20, // Muertes
                 25, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/HdK6Ypf/No-Player-Fnatic.png", // Asumiendo que es la URL de la imagen
                 fnaticTQ // Equipo: FnaticTQ
         );
         jugadores.add(valans);
@@ -1124,7 +1124,7 @@ public class Seeder implements CommandLineRunner {
                 22, // Bajas
                 71, // Muertes
                 165, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/WPRB4NK/Kadir.png", // Asumiendo que es la URL de la imagen
                 fnaticTQ // Equipo: FnaticTQ
         );
         jugadores.add(kadir);
@@ -1139,7 +1139,7 @@ public class Seeder implements CommandLineRunner {
                 2, // Bajas
                 2, // Muertes
                 10, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/sVJyqJy/Viketox.png", // Asumiendo que es la URL de la imagen
                 fnaticTQ // Equipo: FnaticTQ
         );
         jugadores.add(viketox);
@@ -1159,7 +1159,7 @@ public class Seeder implements CommandLineRunner {
                 63, // Bajas
                 89, // Muertes
                 110, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/fYs9fvm/Dreedy.png", // Asumiendo que es la URL de la imagen
                 guasones // Equipo: Guasones
         );
         jugadores.add(dreedy);
@@ -1174,7 +1174,7 @@ public class Seeder implements CommandLineRunner {
                 43, // Bajas
                 108, // Muertes
                 181, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/zrnH6Wh/Memento.png", // Asumiendo que es la URL de la imagen
                 guasones // Equipo: Guasones
         );
         jugadores.add(memento);
@@ -1189,7 +1189,7 @@ public class Seeder implements CommandLineRunner {
                 83, // Bajas
                 86, // Muertes
                 118, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/Q68Tkx1/Ronaldo.png", // Asumiendo que es la URL de la imagen
                 guasones // Equipo: Guasones
         );
         jugadores.add(ronaldo);
@@ -1204,7 +1204,7 @@ public class Seeder implements CommandLineRunner {
                 114, // Bajas
                 75, // Muertes
                 95, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/SJnRy39/Zamulek.png", // Asumiendo que es la URL de la imagen
                 guasones // Equipo: Guasones
         );
         jugadores.add(zamulek);
@@ -1219,7 +1219,7 @@ public class Seeder implements CommandLineRunner {
                 17, // Bajas
                 104, // Muertes
                 223, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/RQXDcYW/Duall.png", // Asumiendo que es la URL de la imagen
                 guasones // Equipo: Guasones
         );
         jugadores.add(duall);
@@ -1234,7 +1234,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/8DZX1vP/Naau.png", // Asumiendo que es la URL de la imagen
                 guasones // Equipo: Guasones
         );
         jugadores.add(adryh);
@@ -1254,7 +1254,7 @@ public class Seeder implements CommandLineRunner {
                 23, // Bajas
                 19, // Muertes
                 50, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/chsK6wn/No-Player-Case.png", // Asumiendo que es la URL de la imagen
                 caseEsports // Equipo: Case Esports
         );
         jugadores.add(ray);
@@ -1269,7 +1269,7 @@ public class Seeder implements CommandLineRunner {
                 27, // Bajas
                 12, // Muertes
                 61, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/chsK6wn/No-Player-Case.png", // Asumiendo que es la URL de la imagen
                 caseEsports // Equipo: Case Esports
         );
         jugadores.add(lebron);
@@ -1284,7 +1284,7 @@ public class Seeder implements CommandLineRunner {
                 22, // Bajas
                 15, // Muertes
                 66, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/chsK6wn/No-Player-Case.png", // Asumiendo que es la URL de la imagen
                 caseEsports // Equipo: Case Esports
         );
         jugadores.add(javier);
@@ -1299,7 +1299,7 @@ public class Seeder implements CommandLineRunner {
                 41, // Bajas
                 7, // Muertes
                 47, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/chsK6wn/No-Player-Case.png", // Asumiendo que es la URL de la imagen
                 caseEsports // Equipo: Case Esports
         );
         jugadores.add(coldraa);
@@ -1314,7 +1314,7 @@ public class Seeder implements CommandLineRunner {
                 6, // Bajas
                 16, // Muertes
                 76, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/chsK6wn/No-Player-Case.png", // Asumiendo que es la URL de la imagen
                 caseEsports // Equipo: Case Esports
         );
         jugadores.add(pyrka);
@@ -1329,7 +1329,7 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/8DZX1vP/Naau.png", // Asumiendo que es la URL de la imagen
                 caseEsports // Equipo: Case Esports
         );
         jugadores.add(ace);
@@ -1348,7 +1348,7 @@ public class Seeder implements CommandLineRunner {
                 31, // Bajas
                 48, // Muertes
                 95, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/HdzMK8G/Icebreaker.png", // Asumiendo que es la URL de la imagen
                 wizards // Equipo: Wizards
         );
         jugadores.add(icebreaker);
@@ -1363,7 +1363,7 @@ public class Seeder implements CommandLineRunner {
                 51, // Bajas
                 54, // Muertes
                 117, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/C9Q4wtK/Dahvys.png", // Asumiendo que es la URL de la imagen
                 wizards // Equipo: Wizards
         );
         jugadores.add(dahvys);
@@ -1378,7 +1378,7 @@ public class Seeder implements CommandLineRunner {
                 50, // Bajas
                 40, // Muertes
                 113, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/2F57QYp/Tsiperakos.png", // Asumiendo que es la URL de la imagen
                 wizards // Equipo: Wizards
         );
         jugadores.add(tsiperakos);
@@ -1389,11 +1389,11 @@ public class Seeder implements CommandLineRunner {
                 "ADC",
                 19, // Edad desconocida
                 "SE",
-                "kai'sa", // Campeón favorito desconocido
+                "Kai'Sa", // Campeón favorito desconocido
                 77, // Bajas
                 28, // Muertes
                 80, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/Wp180YZ/No-Player-Wizards.png", // Asumiendo que es la URL de la imagen
                 wizards // Equipo: Wizards
         );
         jugadores.add(lindgarde);
@@ -1408,7 +1408,7 @@ public class Seeder implements CommandLineRunner {
                 10, // Bajas
                 71, // Muertes
                 146, // Asistencias
-                "Best player champion image.", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/vmH6jfx/Simpy.png", // Asumiendo que es la URL de la imagen
                 wizards // Equipo: Wizards
         );
         jugadores.add(simpy);
@@ -1423,14 +1423,14 @@ public class Seeder implements CommandLineRunner {
                 0, // Bajas
                 0, // Muertes
                 0, // Asistencias
-                "TEMPORADA", // Asumiendo que es la URL de la imagen
+                "https://i.ibb.co/Wp180YZ/No-Player-Wizards.png", // Asumiendo que es la URL de la imagen
                 wizards // Equipo: Wizards
         );
         jugadores.add(alonshot);
 
         // Creamos las partidas
 
-        List<Partida> partidas = partidaFactory.get(180*3, equipos);
+        List<Partida> partidas = partidaFactory.get(90*3, equipos);
 
         //Guardamos los datos en los repositorios
 

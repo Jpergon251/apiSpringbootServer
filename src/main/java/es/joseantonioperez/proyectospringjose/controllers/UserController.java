@@ -1,6 +1,7 @@
 package es.joseantonioperez.proyectospringjose.controllers;
 
 import es.joseantonioperez.proyectospringjose.dto.UserDTO;
+import es.joseantonioperez.proyectospringjose.models.Jugador;
 import es.joseantonioperez.proyectospringjose.models.User;
 import es.joseantonioperez.proyectospringjose.repositories.UserRepository;
 import es.joseantonioperez.proyectospringjose.services.TokenService;
@@ -114,6 +115,31 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    // Añadir un jugador favorito
+
+    @PostMapping("/users/{id}/favorites")
+    public ResponseEntity<User> addFavoritePlayer(@PathVariable Long id, @RequestBody Jugador jugador) {
+        if (id == null || jugador == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+
+            // Añade el jugador a la lista de favoritos del usuario
+            user.getJugadoresFavoritos().add(jugador);
+
+            // Guarda el usuario actualizado en la base de datos
+            userRepository.save(user);
+
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
