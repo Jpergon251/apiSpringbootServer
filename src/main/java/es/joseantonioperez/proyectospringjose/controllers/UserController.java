@@ -142,4 +142,41 @@ public class UserController {
         }
     }
 
+    // Eliminar un jugador de favoritos
+    @DeleteMapping("/users/{id}/favorites/{jugadorId}")
+    public ResponseEntity<User> removeFavoritePlayer(@PathVariable Long id, @PathVariable Long jugadorId) {
+        if (id == null || jugadorId == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+
+            // Busca el jugador en la lista de favoritos del usuario
+            Jugador jugadorToRemove = null;
+            for (Jugador jugador : user.getJugadoresFavoritos()) {
+                if (jugador.getId().equals(jugadorId)) {
+                    jugadorToRemove = jugador;
+                    break;
+                }
+            }
+
+            // Si se encontró el jugador, se elimina de la lista y se guarda el usuario actualizado
+            if (jugadorToRemove != null) {
+                user.getJugadoresFavoritos().remove(jugadorToRemove);
+                userRepository.save(user);
+                return ResponseEntity.ok(user);
+            } else {
+                // Si no se encontró el jugador, devuelve un error 404 (Not Found)
+                return ResponseEntity.notFound().build();
+            }
+        } else {
+            // Si no se encuentra el usuario, devuelve un error 404 (Not Found)
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 }
