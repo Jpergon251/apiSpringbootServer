@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static es.joseantonioperez.proyectospringjose.models.User.UserRole.ADMIN;
+import static es.joseantonioperez.proyectospringjose.models.User.UserRole.USER;
 
 @Component
 public class Seeder implements CommandLineRunner {
@@ -44,6 +45,8 @@ public class Seeder implements CommandLineRunner {
         User testUser = new User("Jose","jpergon251@g.educaand.es", "pestillo", ADMIN);
         userRepository.save(testUser);
 
+        User testUser2 = new User("SANBOLO","sanbolo@hotmail.com", "pestillo", USER);
+        userRepository.save(testUser2);
 
         //Creamos las listas vacias
         List<Jugador> jugadores = new ArrayList<>();
