@@ -109,7 +109,7 @@ public class SecurityConfig {
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(List.of("http://localhost:5173","https://super-liga-lol.netlify.app, http://localhost")); // Cambia esto al origen correcto
+		configuration.setAllowedOrigins(List.of("http://localhost:5173","https://super-liga-lol.netlify.app", "http://localhost")); // Cambia esto al origen correcto
 		configuration.setAllowedHeaders(List.of("*"));
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 		configuration.setAllowCredentials(true);
